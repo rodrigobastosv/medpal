@@ -1,4 +1,4 @@
-package com.example.medpal
+package com.medpal
 
 import io.flutter.embedding.android.FlutterActivity
 
