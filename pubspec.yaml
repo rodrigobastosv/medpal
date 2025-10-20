@@ -13,6 +13,7 @@ dependencies:
   # Intl
   flutter_localizations:
     sdk: flutter
+  intl: ^0.20.2
 
   # Routing
   go_router: ^16.2.5
@@ -30,6 +31,7 @@ dependencies:
   # UI
   gap: ^3.0.1
   loader_overlay: ^5.0.0
+  introduction_screen: ^4.0.0
 
   # General
   json_annotation: ^4.9.0
@@ -42,3 +44,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/images/

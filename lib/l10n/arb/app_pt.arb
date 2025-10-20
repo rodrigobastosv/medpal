@@ -1,0 +1,14 @@
+{
+    "@@locale": "pt",
+    "step1IntroTitle": "Mantenha-se Conectado com Seus Pacientes",
+    "step1IntroDescription": "O MedPal ajuda você a manter contato com seus pacientes a qualquer hora e em qualquer lugar — de forma segura e simples.",
+    "step2IntroTitle": "Simplifique Sua Agenda",
+    "step2IntroDescription": "Visualize, confirme e organize suas consultas diárias em um só lugar — sem agendamentos duplicados ou sessões perdidas.",
+    "step3IntroTitle": "Cuidado Personalizado ao Paciente",
+    "step3IntroDescription": "Acesse instantaneamente o histórico, medicamentos e atualizações dos pacientes para oferecer um atendimento mais personalizado.",
+    "step4IntroTitle": "Seus Dados Estão Sempre Seguros",
+    "step4IntroDescription": "Suas comunicações e dados de pacientes são criptografados e tratados com os mais altos padrões de privacidade.",
+    "skip": "Pular",
+    "next": "Próximo",
+    "done": "Concluído"
+}

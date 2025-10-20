@@ -3,6 +3,7 @@ import 'package:loader_overlay/loader_overlay.dart';
 import 'package:medpal/core/app/mp_provider.dart';
 import 'package:medpal/core/presentation/mp_theme.dart';
 import 'package:medpal/core/routing/mp_router_config.dart';
+import 'package:medpal/l10n/arb/app_localizations.dart';
 
 class MPApp extends StatelessWidget {
   const MPApp({super.key});
@@ -11,6 +12,8 @@ class MPApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp.router(
     title: 'MedPal',
     debugShowCheckedModeBanner: false,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
     theme: MPTheme.lightTheme,
     builder: (context, child) => LoaderOverlay(child: MPProvider(child: child!)),
     routerConfig: mpRouterConfig,

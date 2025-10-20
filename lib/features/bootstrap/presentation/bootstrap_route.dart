@@ -5,5 +5,5 @@ import 'package:medpal/core/routing/mp_route.dart';
 final bootstrapRoute = GoRoute(
   path: MPRoute.bootstrap.path,
   builder: (context, state) => const Scaffold(),
-  redirect: (context, state) => MPRoute.signIn.path,
+  redirect: (context, state) => MPRoute.welcome.path,
 );
