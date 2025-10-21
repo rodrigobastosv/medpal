@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "medpal",
+            "name": "MedPal",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart"
