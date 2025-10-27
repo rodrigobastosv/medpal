@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
       listener: (context, event) {
         switch (event) {
           case IntroCompletedEvent():
-            context.pushNamed(MPRoute.signIn.name);
+            context.pushNamed(MPRoute.signUp.name);
         }
       },
       child: Scaffold(

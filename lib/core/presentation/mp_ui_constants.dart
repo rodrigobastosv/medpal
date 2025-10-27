@@ -176,59 +176,59 @@ class MPUiConstants {
   static const double fontSizeLabelSmall = 11;
 
   /// Extra small gap (4px) - For tight layouts, icon-text spacing
-  Widget get gapXS => const Gap(MPUiConstants.spacingXS);
+  static Widget get gapXS => const Gap(MPUiConstants.spacingXS);
 
   /// Small gap (8px) - For compact layouts, button spacing
-  Widget get gapSM => const Gap(MPUiConstants.spacingSM);
+  static Widget get gapSM => const Gap(MPUiConstants.spacingSM);
 
   /// Medium gap (16px) - For standard content spacing, form fields
-  Widget get gapMD => const Gap(MPUiConstants.spacingMD);
+  static Widget get gapMD => const Gap(MPUiConstants.spacingMD);
 
   /// Large gap (24px) - For section spacing, card separation
-  Widget get gapLG => const Gap(MPUiConstants.spacingLG);
+  static Widget get gapLG => const Gap(MPUiConstants.spacingLG);
 
   /// Extra large gap (32px) - For major section breaks
-  Widget get gapXL => const Gap(MPUiConstants.spacingXL);
+  static Widget get gapXL => const Gap(MPUiConstants.spacingXL);
 
   /// Double extra large gap (48px) - For dramatic spacing, screen sections
-  Widget get gapXXL => const Gap(MPUiConstants.spacingXXL);
+  static Widget get gapXXL => const Gap(MPUiConstants.spacingXXL);
 
   /// Extra small padding (4px all sides) - For tight spacing, borders
-  EdgeInsets get paddingXS => const EdgeInsets.all(MPUiConstants.spacingXS);
+  static EdgeInsets get paddingXS => const EdgeInsets.all(MPUiConstants.spacingXS);
 
   /// Small padding (8px all sides) - For compact elements, buttons
-  EdgeInsets get paddingSM => const EdgeInsets.all(MPUiConstants.spacingSM);
+  static EdgeInsets get paddingSM => const EdgeInsets.all(MPUiConstants.spacingSM);
 
   /// Medium padding (16px all sides) - For standard content, cards
-  EdgeInsets get paddingMD => const EdgeInsets.all(MPUiConstants.spacingMD);
+  static EdgeInsets get paddingMD => const EdgeInsets.all(MPUiConstants.spacingMD);
 
   /// Large padding (24px all sides) - For spacious layouts, dialogs
-  EdgeInsets get paddingLG => const EdgeInsets.all(MPUiConstants.spacingLG);
+  static EdgeInsets get paddingLG => const EdgeInsets.all(MPUiConstants.spacingLG);
 
   /// Extra large padding (32px all sides) - For major spacing, screen edges
-  EdgeInsets get paddingXL => const EdgeInsets.all(MPUiConstants.spacingXL);
+  static EdgeInsets get paddingXL => const EdgeInsets.all(MPUiConstants.spacingXL);
 
   /// Double extra large padding (48px all sides) - For dramatic spacing
-  EdgeInsets get paddingXXL => const EdgeInsets.all(MPUiConstants.spacingXXL);
+  static EdgeInsets get paddingXXL => const EdgeInsets.all(MPUiConstants.spacingXXL);
 
   /// Horizontal padding only (left and right)
-  EdgeInsets paddingHorizontal(double value) => EdgeInsets.symmetric(horizontal: value);
+  static EdgeInsets paddingHorizontal(double value) => EdgeInsets.symmetric(horizontal: value);
 
   /// Vertical padding only (top and bottom)
-  EdgeInsets paddingVertical(double value) => EdgeInsets.symmetric(vertical: value);
+  static EdgeInsets paddingVertical(double value) => EdgeInsets.symmetric(vertical: value);
 
   /// Extra small border radius (4px) - For subtle rounding, checkboxes
-  BorderRadius get circularRadiusXS => BorderRadius.circular(MPUiConstants.radiusXS);
+  static BorderRadius get circularRadiusXS => BorderRadius.circular(MPUiConstants.radiusXS);
 
   /// Small border radius (8px) - For buttons, chips, form fields
-  BorderRadius get circularRadiusSM => BorderRadius.circular(MPUiConstants.radiusSM);
+  static BorderRadius get circularRadiusSM => BorderRadius.circular(MPUiConstants.radiusSM);
 
   /// Medium border radius (12px) - For cards, containers, most elements
-  BorderRadius get circularRadiusMD => BorderRadius.circular(MPUiConstants.radiusMD);
+  static BorderRadius get circularRadiusMD => BorderRadius.circular(MPUiConstants.radiusMD);
 
   /// Large border radius (16px) - For prominent elements, dialogs
-  BorderRadius get circularRadiusLG => BorderRadius.circular(MPUiConstants.radiusLG);
+  static BorderRadius get circularRadiusLG => BorderRadius.circular(MPUiConstants.radiusLG);
 
   /// Extra large border radius (24px) - For hero elements, bottom sheets
-  BorderRadius get circularRadiusXL => BorderRadius.circular(MPUiConstants.radiusXL);
+  static BorderRadius get circularRadiusXL => BorderRadius.circular(MPUiConstants.radiusXL);
 }

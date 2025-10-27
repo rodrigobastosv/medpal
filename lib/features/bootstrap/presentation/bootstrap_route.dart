@@ -14,6 +14,6 @@ final bootstrapRoute = GoRoute(
     if (isFirstLaunch) {
       return MPRoute.welcome.path;
     }
-    return MPRoute.signIn.path;
+    return MPRoute.signUp.path;
   },
 );

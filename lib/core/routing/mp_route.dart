@@ -1,7 +1,8 @@
 enum MPRoute {
   bootstrap('/'),
   welcome('/welcome'),
-  signIn('/sign-in');
+  signIn('/sign-in'),
+  signUp('/sign-up');
 
   const MPRoute(this.path);
 
