@@ -23,17 +23,6 @@ jobs:
           flutter-version: 3.35.5
           cache: true
 
-      - name: Install FlutterFire CLI
-        run: dart pub global activate flutterfire_cli
-
-      - name: Install Firebase CLI
-        run: curl -sL https://firebase.tools | bash
-
-      - name: Generate Firebase options
-        run: flutterfire configure --project=medpal-d5092 --platforms=android,ios,web --yes
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
       - name: Get dependencies
         run: flutter pub get
 
@@ -67,17 +56,6 @@ jobs:
           channel: stable
           flutter-version: 3.35.5
           cache: true
-
-      - name: Install FlutterFire CLI
-        run: dart pub global activate flutterfire_cli
-
-      - name: Install Firebase CLI
-        run: curl -sL https://firebase.tools | bash
-
-      - name: Generate Firebase options
-        run: flutterfire configure --project=medpal-d5092 --platforms=android,ios,web --yes
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Get dependencies
         run: flutter pub get
