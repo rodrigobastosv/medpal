@@ -22,6 +22,14 @@ jobs:
           flutter-version: 3.35.5
           cache: true
 
+      - name: Generate Firebase options
+        run: flutterfire configure \
+              --project=medpal-d5092 \
+              --platforms=android,ios,web \
+              --yes
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
       - name: Get dependencies
         run: flutter pub get
 
