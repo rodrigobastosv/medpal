@@ -50,7 +50,7 @@ jobs:
           slug: rodrigobastosv/medpal
 
   android:
-    name: Android Lint, Test & Build
+    name: Android Build
     runs-on: ubuntu-latest
     needs: [quality_checks]
     environment: Medpal
