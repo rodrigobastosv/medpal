@@ -44,4 +44,28 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get done => 'Concluído';
+
+  @override
+  String get signUp => 'Criar Conta';
+
+  @override
+  String get createAccountOr => 'Criar conta ou';
+
+  @override
+  String get signIn => 'Entrar';
+
+  @override
+  String get name => 'Nome';
+
+  @override
+  String get lastName => 'Sobrenome';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get password => 'Senha';
+
+  @override
+  String get confirmPassword => 'Confirme a Senha';
 }

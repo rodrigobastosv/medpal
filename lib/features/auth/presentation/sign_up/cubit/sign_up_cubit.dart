@@ -10,9 +10,15 @@ class SignUpCubit extends Cubit<SignUpState> with BlocPresentationMixin<SignUpSt
 
   final SignUpUseCase _signUpUseCase;
 
+  void changeName(String? name) => emit(state.copyWith(name: name));
+
+  void changeLastName(String? lastName) => emit(state.copyWith(lastName: lastName));
+
   void changeEmail(String? email) => emit(state.copyWith(email: email));
 
   void changePassword(String? password) => emit(state.copyWith(password: password));
+
+  void changePasswordConfirmation(String? passwordConfirmation) => emit(state.copyWith(passwordConfirmation: passwordConfirmation));
 
   Future<void> signUp() async {
     final signUpResult = await _signUpUseCase(email: state.email, password: state.password);

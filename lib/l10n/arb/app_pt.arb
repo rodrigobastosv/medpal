@@ -10,5 +10,13 @@
     "step4IntroDescription": "Suas comunicações e dados de pacientes são criptografados e tratados com os mais altos padrões de privacidade.",
     "skip": "Pular",
     "next": "Próximo",
-    "done": "Concluído"
+    "done": "Concluído",
+    "signUp": "Criar Conta",
+    "createAccountOr": "Criar conta ou",
+    "signIn": "Entrar",
+    "name": "Nome",
+    "lastName": "Sobrenome",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirme a Senha"
 }

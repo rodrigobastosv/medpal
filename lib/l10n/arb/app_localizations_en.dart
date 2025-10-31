@@ -41,4 +41,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get done => 'Done';
+
+  @override
+  String get signUp => 'Sign Up';
+
+  @override
+  String get createAccountOr => 'Create an account or';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get lastName => 'Last Name';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
 }

@@ -10,5 +10,13 @@
     "step4IntroDescription": "Your communications and patient data are encrypted and handled with the highest privacy standards.",
     "skip": "Skip",
     "next": "Next",
-    "done": "Done"
+    "done": "Done",
+    "signUp": "Sign Up",
+    "createAccountOr": "Create an account or",
+    "signIn": "Sign in",
+    "name": "Name",
+    "lastName": "Last Name",
+    "email": "E-mail",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
 }

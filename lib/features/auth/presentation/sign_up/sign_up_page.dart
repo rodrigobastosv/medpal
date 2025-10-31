@@ -2,15 +2,26 @@ import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/theme_extensions.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_presentation_events.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_state.dart';
+import 'package:medpal/l10n/l10n.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
   @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  bool hidePassword = true;
+  bool hideConfirmPassword = true;
+
+  @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final cubit = context.read<SignUpCubit>();
     return BlocPresentationListener<SignUpCubit, SignUpPresentationEvent>(
       listener: (context, event) {
@@ -24,23 +35,67 @@ class SignUpPage extends StatelessWidget {
       },
       child: BlocBuilder<SignUpCubit, SignUpState>(
         builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Sign-Up')),
           body: Padding(
             padding: MPUiConstants.paddingHorizontal(16),
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: const InputDecoration(hintText: 'E-mail'),
-                  onChanged: cubit.changeEmail,
-                ),
-                MPUiConstants.gapMD,
-                TextFormField(
-                  decoration: const InputDecoration(hintText: 'Password'),
-                  onChanged: cubit.changePassword,
-                ),
-                MPUiConstants.gapXL,
-                FilledButton(onPressed: cubit.signUp, child: const Text('Create Account')),
-              ],
+            child: SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(l10n.signUp, style: context.textTheme.headlineMedium),
+                  Row(
+                    children: [
+                      Text(l10n.createAccountOr),
+                      TextButton(
+                        onPressed: () {},
+                        style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
+                        child: Text(l10n.signIn),
+                      ),
+                    ],
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    onChanged: cubit.changeName,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.lastName, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    onChanged: cubit.changeLastName,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    onChanged: cubit.changeEmail,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: l10n.password,
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: GestureDetector(
+                        onTap: () => setState(() => hidePassword = !hidePassword),
+                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                      ),
+                    ),
+                    obscureText: hidePassword,
+                    onChanged: cubit.changePassword,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: l10n.confirmPassword,
+                      floatingLabelBehavior: FloatingLabelBehavior.always,
+                      suffixIcon: GestureDetector(
+                        onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
+                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                      ),
+                    ),
+                    obscureText: hideConfirmPassword,
+                    onChanged: cubit.changePasswordConfirmation,
+                  ),
+                  MPUiConstants.gapXL,
+                  FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
+                ],
+              ),
             ),
           ),
         ),
