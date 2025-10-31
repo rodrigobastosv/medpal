@@ -1,4 +1,4 @@
-name: MedPal Pipeline
+name: MedPal CI/CD
 
 on:
   push:
