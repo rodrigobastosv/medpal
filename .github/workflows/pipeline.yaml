@@ -92,6 +92,11 @@ jobs:
       - name: Copy dummy Firebase options for CI
         run: cp .github/ci/firebase_options.dart lib/firebase_options.dart
 
+      - name: COPY GoogleService-Info.plist
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" > ios/Runner/GoogleService-Info.plist
+
+
       - name: Build iOS IPA (no codesign)
         run: flutter build ipa --release --no-codesign
 
