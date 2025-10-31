@@ -1,6 +1,4 @@
-# medpal
-
-A new Flutter project.
+[![codecov](https://codecov.io/gh/rodrigobastosv/medpal/graph/badge.svg?token=BS9ZDwlSuL)](https://codecov.io/gh/rodrigobastosv/medpal)
 
 ## Getting Started
 
