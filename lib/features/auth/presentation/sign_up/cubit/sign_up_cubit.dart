@@ -21,19 +21,17 @@ class SignUpCubit extends Cubit<SignUpState> with BlocPresentationMixin<SignUpSt
   void changePasswordConfirmation(String? passwordConfirmation) => emit(state.copyWith(passwordConfirmation: passwordConfirmation));
 
   Future<void> signUp() async {
-    final signUpResult = await _signUpUseCase(email: state.email, password: state.password);
-    signUpResult.when(
-      (error) {
-        emitPresentation(switch (error) {
-          EmailAlreadyInUseAuthError() => EmailAlreadyInUseSignUpError(),
-          InvalidEmailAuthError() => InvalidEmailSignUpError(),
-          WeakPasswordAuthError() => WeakPasswordSignUpError(),
-          UnknownAuthError() => UnknownSignUpError(),
-        });
-      },
-      (_) {
-        emitPresentation(UserSignedUpEvent());
-      },
-    );
+    emitPresentation(ShowLoadingEvent());
+    final signUpResult = await _signUpUseCase(name: state.name, lastName: state.lastName, email: state.email, password: state.password);
+    emitPresentation(HideLoadingEvent());
+
+    signUpResult.when((error) {
+      emitPresentation(switch (error) {
+        EmailAlreadyInUseAuthError() => EmailAlreadyInUseSignUpErrorEvent(),
+        InvalidEmailAuthError() => InvalidEmailSignUpErrorEvent(),
+        WeakPasswordAuthError() => WeakPasswordSignUpErrorEvent(),
+        UnknownAuthError() => UnknownSignUpErrorEvent(),
+      });
+    }, (_) => emitPresentation(UserSignedUpEvent()));
   }
 }

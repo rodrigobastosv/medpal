@@ -18,5 +18,9 @@
     "lastName": "Sobrenome",
     "email": "E-mail",
     "password": "Senha",
-    "confirmPassword": "Confirme a Senha"
+    "confirmPassword": "Confirme a Senha",
+    "invalidEmail": "E-mail Inválido",
+    "passwordsDoNotMatch": "As senhas não coincidem",
+    "error": "Erro",
+    "ok": "Ok"
 }

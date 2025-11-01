@@ -1,8 +1,11 @@
 import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medpal/core/presentation/mp_loading.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/utils/mp_string_utils.dart';
+import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_presentation_events.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_state.dart';
@@ -26,11 +29,15 @@ class _SignUpPageState extends State<SignUpPage> {
     return BlocPresentationListener<SignUpCubit, SignUpPresentationEvent>(
       listener: (context, event) {
         switch (event) {
+          case ShowLoadingEvent():
+            context.showLoading();
+          case HideLoadingEvent():
+            context.hideLoading();
           case UserSignedUpEvent():
-          case EmailAlreadyInUseSignUpError():
-          case InvalidEmailSignUpError():
-          case WeakPasswordSignUpError():
-          case UnknownSignUpError():
+          case EmailAlreadyInUseSignUpErrorEvent():
+          case InvalidEmailSignUpErrorEvent():
+          case WeakPasswordSignUpErrorEvent():
+          case UnknownSignUpErrorEvent():
         }
       },
       child: BlocBuilder<SignUpCubit, SignUpState>(
@@ -54,19 +61,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    maxLength: 16,
                     onChanged: cubit.changeName,
                   ),
                   MPUiConstants.gapMD,
                   TextFormField(
                     decoration: InputDecoration(labelText: l10n.lastName, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    maxLength: 16,
                     onChanged: cubit.changeLastName,
                   ),
                   MPUiConstants.gapMD,
                   TextFormField(
                     decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
                     onChanged: cubit.changeEmail,
+                    validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
-                  MPUiConstants.gapMD,
+                  MPUiConstants.gapXL,
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: l10n.password,
@@ -77,6 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     obscureText: hidePassword,
+                    maxLength: 20,
                     onChanged: cubit.changePassword,
                   ),
                   MPUiConstants.gapMD,
@@ -90,7 +102,19 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     obscureText: hideConfirmPassword,
+                    maxLength: 20,
                     onChanged: cubit.changePasswordConfirmation,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (passwordConfirmation) {
+                      if (state.password.isNotNullNorEmpty) {
+                        return null;
+                      }
+                      return MPValidators.matchingPasswordsValidator(
+                        state.password,
+                        passwordConfirmation,
+                        matchingErrorMessage: l10n.passwordsDoNotMatch,
+                      );
+                    },
                   ),
                   MPUiConstants.gapXL,
                   FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),

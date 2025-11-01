@@ -1,11 +1,15 @@
 sealed class SignUpPresentationEvent {}
 
+class ShowLoadingEvent extends SignUpPresentationEvent {}
+
+class HideLoadingEvent extends SignUpPresentationEvent {}
+
 class UserSignedUpEvent extends SignUpPresentationEvent {}
 
-class EmailAlreadyInUseSignUpError extends SignUpPresentationEvent {}
+class EmailAlreadyInUseSignUpErrorEvent extends SignUpPresentationEvent {}
 
-class InvalidEmailSignUpError extends SignUpPresentationEvent {}
+class InvalidEmailSignUpErrorEvent extends SignUpPresentationEvent {}
 
-class WeakPasswordSignUpError extends SignUpPresentationEvent {}
+class WeakPasswordSignUpErrorEvent extends SignUpPresentationEvent {}
 
-class UnknownSignUpError extends SignUpPresentationEvent {}
+class UnknownSignUpErrorEvent extends SignUpPresentationEvent {}

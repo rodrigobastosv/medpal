@@ -21,10 +21,15 @@ class AuthRepository {
     await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
   }
 
-  Future<Result<AuthError, User>> signUp({required String email, required String password}) async {
+  Future<Result<AuthError, User>> signUp({
+    required String name,
+    required String lastName,
+    required String email,
+    required String password,
+  }) async {
     try {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      final user = User(userId: userCredential.user!.uid, email: email);
+      final user = User(userId: userCredential.user!.uid, name: name, lastName: lastName, email: email);
       return Success(user);
     } on FirebaseAuthException catch (exception) {
       return switch (exception.code) {

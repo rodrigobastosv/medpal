@@ -65,4 +65,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get invalidEmail => 'Invalid E-mail';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get ok => 'Ok';
 }

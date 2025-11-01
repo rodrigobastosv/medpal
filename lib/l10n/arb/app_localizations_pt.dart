@@ -68,4 +68,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Confirme a Senha';
+
+  @override
+  String get invalidEmail => 'E-mail Inválido';
+
+  @override
+  String get passwordsDoNotMatch => 'As senhas não coincidem';
+
+  @override
+  String get error => 'Erro';
+
+  @override
+  String get ok => 'Ok';
 }

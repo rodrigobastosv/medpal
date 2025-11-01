@@ -18,5 +18,9 @@
     "lastName": "Last Name",
     "email": "E-mail",
     "password": "Password",
-    "confirmPassword": "Confirm Password"
+    "confirmPassword": "Confirm Password",
+    "invalidEmail": "Invalid E-mail",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "error": "Error",
+    "ok": "Ok"
 }
