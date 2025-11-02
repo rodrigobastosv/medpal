@@ -229,6 +229,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ok'**
   String get ok;
+
+  /// No description provided for @emailAlreadyInUseError.
+  ///
+  /// In en, this message translates to:
+  /// **'This email is already in use. Please use a different one or sign in instead.'**
+  String get emailAlreadyInUseError;
+
+  /// No description provided for @invalidEmailError.
+  ///
+  /// In en, this message translates to:
+  /// **'The email address you entered is not valid. Please check and try again.'**
+  String get invalidEmailError;
+
+  /// No description provided for @weakPasswordError.
+  ///
+  /// In en, this message translates to:
+  /// **'Your password is too weak. Try using a mix of letters, numbers, and symbols.'**
+  String get weakPasswordError;
+
+  /// No description provided for @unknownSignUpError.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred during sign up. Please try again later.'**
+  String get unknownSignUpError;
+
+  /// No description provided for @invalidEmailSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'The email address you entered is not valid. Please check and try again.'**
+  String get invalidEmailSignInError;
+
+  /// No description provided for @userDisabledSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'This account has been disabled. Please contact support for more information.'**
+  String get userDisabledSignInError;
+
+  /// No description provided for @userNotFoundSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn’t find an account with this email. Please check the address or sign up.'**
+  String get userNotFoundSignInError;
+
+  /// No description provided for @invalidCredentialsSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'The credentials you entered are invalid. Please check and try again.'**
+  String get invalidCredentialsSignInError;
+
+  /// No description provided for @wrongPasswordSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'The password you entered is incorrect. Please try again.'**
+  String get wrongPasswordSignInError;
+
+  /// No description provided for @unknownSignInError.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred during sign in. Please try again later.'**
+  String get unknownSignInError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,13 +1,13 @@
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/auth/data/auth_repository.dart';
-import 'package:medpal/features/auth/domain/errors/auth_error.dart';
+import 'package:medpal/features/auth/domain/errors/sign_up_error.dart';
 
 class SignUpUseCase {
   SignUpUseCase({required AuthRepository authRepository}) : _authRepository = authRepository;
 
   final AuthRepository _authRepository;
 
-  Future<Result<AuthError, void>> call({
+  Future<Result<SignUpError, void>> call({
     required String name,
     required String lastName,
     required String email,

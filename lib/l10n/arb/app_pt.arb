@@ -22,5 +22,15 @@
     "invalidEmail": "E-mail Inválido",
     "passwordsDoNotMatch": "As senhas não coincidem",
     "error": "Erro",
-    "ok": "Ok"
+    "ok": "Ok",
+    "emailAlreadyInUseError": "Este e-mail já está em uso. Use um diferente ou faça login.",
+    "invalidEmailError": "O endereço de e-mail informado não é válido. Verifique e tente novamente.",
+    "weakPasswordError": "Sua senha é muito fraca. Tente usar uma combinação de letras, números e símbolos.",
+    "unknownSignUpError": "Ocorreu um erro inesperado durante o cadastro. Tente novamente mais tarde.",
+    "invalidEmailSignInError": "O endereço de e-mail informado não é válido. Verifique e tente novamente.",
+    "userDisabledSignInError": "Esta conta foi desativada. Entre em contato com o suporte para mais informações.",
+    "userNotFoundSignInError": "Não encontramos uma conta com este e-mail. Verifique o endereço ou cadastre-se.",
+    "invalidCredentialsSignInError": "As credenciais fornecidas são inválidas. Verifique e tente novamente.",
+    "wrongPasswordSignInError": "A senha informada está incorreta. Tente novamente.",
+    "unknownSignInError": "Ocorreu um erro inesperado durante o login. Tente novamente mais tarde."
 }

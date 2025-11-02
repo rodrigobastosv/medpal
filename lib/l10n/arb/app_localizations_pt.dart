@@ -80,4 +80,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get ok => 'Ok';
+
+  @override
+  String get emailAlreadyInUseError => 'Este e-mail já está em uso. Use um diferente ou faça login.';
+
+  @override
+  String get invalidEmailError => 'O endereço de e-mail informado não é válido. Verifique e tente novamente.';
+
+  @override
+  String get weakPasswordError => 'Sua senha é muito fraca. Tente usar uma combinação de letras, números e símbolos.';
+
+  @override
+  String get unknownSignUpError => 'Ocorreu um erro inesperado durante o cadastro. Tente novamente mais tarde.';
+
+  @override
+  String get invalidEmailSignInError => 'O endereço de e-mail informado não é válido. Verifique e tente novamente.';
+
+  @override
+  String get userDisabledSignInError => 'Esta conta foi desativada. Entre em contato com o suporte para mais informações.';
+
+  @override
+  String get userNotFoundSignInError => 'Não encontramos uma conta com este e-mail. Verifique o endereço ou cadastre-se.';
+
+  @override
+  String get invalidCredentialsSignInError => 'As credenciais fornecidas são inválidas. Verifique e tente novamente.';
+
+  @override
+  String get wrongPasswordSignInError => 'A senha informada está incorreta. Tente novamente.';
+
+  @override
+  String get unknownSignInError => 'Ocorreu um erro inesperado durante o login. Tente novamente mais tarde.';
 }

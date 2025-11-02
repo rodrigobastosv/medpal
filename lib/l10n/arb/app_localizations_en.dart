@@ -77,4 +77,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ok => 'Ok';
+
+  @override
+  String get emailAlreadyInUseError => 'This email is already in use. Please use a different one or sign in instead.';
+
+  @override
+  String get invalidEmailError => 'The email address you entered is not valid. Please check and try again.';
+
+  @override
+  String get weakPasswordError => 'Your password is too weak. Try using a mix of letters, numbers, and symbols.';
+
+  @override
+  String get unknownSignUpError => 'An unexpected error occurred during sign up. Please try again later.';
+
+  @override
+  String get invalidEmailSignInError => 'The email address you entered is not valid. Please check and try again.';
+
+  @override
+  String get userDisabledSignInError => 'This account has been disabled. Please contact support for more information.';
+
+  @override
+  String get userNotFoundSignInError => 'We couldn’t find an account with this email. Please check the address or sign up.';
+
+  @override
+  String get invalidCredentialsSignInError => 'The credentials you entered are invalid. Please check and try again.';
+
+  @override
+  String get wrongPasswordSignInError => 'The password you entered is incorrect. Please try again.';
+
+  @override
+  String get unknownSignInError => 'An unexpected error occurred during sign in. Please try again later.';
 }

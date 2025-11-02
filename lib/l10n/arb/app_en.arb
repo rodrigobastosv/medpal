@@ -22,5 +22,15 @@
     "invalidEmail": "Invalid E-mail",
     "passwordsDoNotMatch": "Passwords do not match",
     "error": "Error",
-    "ok": "Ok"
+    "ok": "Ok",
+    "emailAlreadyInUseError": "This email is already in use. Please use a different one or sign in instead.",
+    "invalidEmailError": "The email address you entered is not valid. Please check and try again.",
+    "weakPasswordError": "Your password is too weak. Try using a mix of letters, numbers, and symbols.",
+    "unknownSignUpError": "An unexpected error occurred during sign up. Please try again later.",
+    "invalidEmailSignInError": "The email address you entered is not valid. Please check and try again.",
+    "userDisabledSignInError": "This account has been disabled. Please contact support for more information.",
+    "userNotFoundSignInError": "We couldn’t find an account with this email. Please check the address or sign up.",
+    "invalidCredentialsSignInError": "The credentials you entered are invalid. Please check and try again.",
+    "wrongPasswordSignInError": "The password you entered is incorrect. Please try again.",
+    "unknownSignInError": "An unexpected error occurred during sign in. Please try again later."
 }
