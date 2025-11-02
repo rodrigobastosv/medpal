@@ -1,9 +1,9 @@
-import 'package:medpal/core/services/local_storage/local_storage_service.dart';
+import 'package:medpal/features/bootstrap/data/datasources/local/bootstrap_local_datasource.dart';
 
 class BootstrapRepository {
-  BootstrapRepository({required LocalStorageService localStorageService}) : _localStorageService = localStorageService;
+  BootstrapRepository({required BootstrapLocalDatasource bootstrapLocalDatasource}) : _bootstrapLocalDatasource = bootstrapLocalDatasource;
 
-  final LocalStorageService _localStorageService;
+  final BootstrapLocalDatasource _bootstrapLocalDatasource;
 
-  bool isFirstLaunch() => _localStorageService.readBoolValue('is_first_launch') ?? true;
+  bool isFirstLaunch() => _bootstrapLocalDatasource.isFirstLaunch();
 }

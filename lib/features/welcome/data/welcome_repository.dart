@@ -1,10 +1,9 @@
-import 'package:medpal/core/services/local_storage/local_storage_service.dart';
+import 'package:medpal/features/welcome/data/datasources/local/welcome_local_datasource.dart';
 
 class WelcomeRepository {
-  WelcomeRepository({required LocalStorageService localStorageService}) : _localStorageService = localStorageService;
+  WelcomeRepository({required WelcomeLocalDatasource welcomeLocalDatasource}) : _welcomeLocalDatasource = welcomeLocalDatasource;
 
-  final LocalStorageService _localStorageService;
+  final WelcomeLocalDatasource _welcomeLocalDatasource;
 
-  Future<void> setFirstLaunch({required bool isFirstLaunch}) =>
-      _localStorageService.writeBoolValue(key: 'is_first_launch', value: isFirstLaunch);
+  Future<void> setFirstLaunch({required bool isFirstLaunch}) => _welcomeLocalDatasource.setFirstLaunch(isFirstLaunch: isFirstLaunch);
 }

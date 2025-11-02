@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medpal/core/app/providers/cubit_providers.dart';
+import 'package:medpal/core/app/providers/datasource_providers.dart';
 import 'package:medpal/core/app/providers/firebase_providers.dart';
 import 'package:medpal/core/app/providers/repository_providers.dart';
 import 'package:medpal/core/app/providers/service_providers.dart';
@@ -15,7 +16,14 @@ class MPProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
-    providers: [...serviceProviders(prefs), ...firebaseProviders(), ...repositoryProviders(), ...useCaseProviders(), ...cubitProviders()],
+    providers: [
+      ...serviceProviders(prefs),
+      ...firebaseProviders(),
+      ...datasourceProviders(),
+      ...repositoryProviders(),
+      ...useCaseProviders(),
+      ...cubitProviders(),
+    ],
     child: child,
   );
 }
