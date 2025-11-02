@@ -37,6 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
           case HideLoadingEvent():
             context.hideLoading();
           case UserSignedUpEvent():
+            context.goNamed(MPRoute.home.name);
           case EmailAlreadyInUseSignUpErrorEvent():
             showErrorDialog(context, message: l10n.emailAlreadyInUseError);
           case InvalidEmailSignUpErrorEvent():

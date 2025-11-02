@@ -8,5 +8,4 @@ final signInRoute = GoRoute(
   name: MPRoute.signIn.name,
   path: MPRoute.signIn.path,
   builder: (context, state) => BlocProvider<SignInCubit>(create: (context) => context.read(), child: const SignInPage()),
-  redirect: (context, state) => MPRoute.signIn.path,
 );

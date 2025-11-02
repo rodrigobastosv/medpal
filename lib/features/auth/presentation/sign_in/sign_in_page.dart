@@ -1,9 +1,11 @@
 import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
 import 'package:medpal/core/presentation/mp_loading.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
+import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/auth/presentation/sign_in/cubit/sign_in_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_in/cubit/sign_in_presentation_events.dart';
@@ -32,6 +34,7 @@ class _SignInPageState extends State<SignInPage> {
           case HideLoadingEvent():
             context.hideLoading();
           case UserSignedInEvent():
+            context.goNamed(MPRoute.home.name);
           case InvalidEmailSignInErrorEvent():
             showErrorDialog(context, message: l10n.invalidEmailSignInError);
           case UserDisabledSignInErrorEvent():
