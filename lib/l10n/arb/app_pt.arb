@@ -32,5 +32,7 @@
     "userNotFoundSignInError": "Não encontramos uma conta com este e-mail. Verifique o endereço ou cadastre-se.",
     "invalidCredentialsSignInError": "As credenciais fornecidas são inválidas. Verifique e tente novamente.",
     "wrongPasswordSignInError": "A senha informada está incorreta. Tente novamente.",
-    "unknownSignInError": "Ocorreu um erro inesperado durante o login. Tente novamente mais tarde."
+    "unknownSignInError": "Ocorreu um erro inesperado durante o login. Tente novamente mais tarde.",
+    "addNewPatient": "Adicionar novo paciente",
+    "registerPatientProfile": "Cadastrar um novo perfil de paciente"
 }

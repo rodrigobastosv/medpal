@@ -289,6 +289,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'An unexpected error occurred during sign in. Please try again later.'**
   String get unknownSignInError;
+
+  /// No description provided for @addNewPatient.
+  ///
+  /// In en, this message translates to:
+  /// **'Add New Patient'**
+  String get addNewPatient;
+
+  /// No description provided for @registerPatientProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Register a new patient profile'**
+  String get registerPatientProfile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

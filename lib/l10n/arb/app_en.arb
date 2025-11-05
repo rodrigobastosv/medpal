@@ -32,5 +32,7 @@
     "userNotFoundSignInError": "We couldn’t find an account with this email. Please check the address or sign up.",
     "invalidCredentialsSignInError": "The credentials you entered are invalid. Please check and try again.",
     "wrongPasswordSignInError": "The password you entered is incorrect. Please try again.",
-    "unknownSignInError": "An unexpected error occurred during sign in. Please try again later."
+    "unknownSignInError": "An unexpected error occurred during sign in. Please try again later.",
+    "addNewPatient": "Add New Patient",
+    "registerPatientProfile": "Register a new patient profile"
 }

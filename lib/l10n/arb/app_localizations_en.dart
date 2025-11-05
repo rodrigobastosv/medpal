@@ -107,4 +107,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unknownSignInError => 'An unexpected error occurred during sign in. Please try again later.';
+
+  @override
+  String get addNewPatient => 'Add New Patient';
+
+  @override
+  String get registerPatientProfile => 'Register a new patient profile';
 }

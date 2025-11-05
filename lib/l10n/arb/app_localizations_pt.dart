@@ -110,4 +110,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get unknownSignInError => 'Ocorreu um erro inesperado durante o login. Tente novamente mais tarde.';
+
+  @override
+  String get addNewPatient => 'Adicionar novo paciente';
+
+  @override
+  String get registerPatientProfile => 'Cadastrar um novo perfil de paciente';
 }
