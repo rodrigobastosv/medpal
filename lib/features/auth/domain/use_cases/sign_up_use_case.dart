@@ -8,14 +8,22 @@ class SignUpUseCase {
   final AuthRepository _authRepository;
 
   Future<Result<SignUpError, void>> call({
+    required String? profilePhotoUrl,
     required String name,
     required String lastName,
     required String email,
     required String password,
   }) async {
-    final signUpResult = await _authRepository.signUp(name: name, lastName: lastName, email: email, password: password);
+    final signUpResult = await _authRepository.signUp(
+      profilePhotoUrl: profilePhotoUrl,
+      name: name,
+      lastName: lastName,
+      email: email,
+      password: password,
+    );
     return signUpResult.when(Error.new, (user) async {
       await _authRepository.addUser(user: user);
+      await _authRepository.storeUser(user);
       return const Success(null);
     });
   }

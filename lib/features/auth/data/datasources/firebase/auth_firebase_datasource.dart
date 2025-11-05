@@ -18,7 +18,8 @@ class AuthFirebaseDatasource {
 
   Stream<bool> get getUserAuthStatus => _firebaseAuth.userChanges().map((user) => user == null);
 
-  Future<Result<SignUpError, User>> signUp({
+  Future<Result<SignUpError, AuthenticatedUser>> signUp({
+    required String? profilePhotoUrl,
     required String name,
     required String lastName,
     required String email,
@@ -26,7 +27,13 @@ class AuthFirebaseDatasource {
   }) async {
     try {
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      final user = User(userId: userCredential.user!.uid, name: name, lastName: lastName, email: email);
+      final user = AuthenticatedUser(
+        userId: userCredential.user!.uid,
+        profilePhotoUrl: profilePhotoUrl,
+        name: name,
+        lastName: lastName,
+        email: email,
+      );
       return Success(user);
     } on FirebaseAuthException catch (exception) {
       return switch (exception.code) {
@@ -38,12 +45,12 @@ class AuthFirebaseDatasource {
     }
   }
 
-  Future<Result<MPError, void>> addUser({required User user}) async {
+  Future<Result<MPError, void>> addUser({required AuthenticatedUser user}) async {
     await usersCollection.doc(user.userId).set(user.toJson());
     return const Success(null);
   }
 
-  Future<Result<SignInError, User>> signIn({required String email, required String password}) async {
+  Future<Result<SignInError, AuthenticatedUser>> signIn({required String email, required String password}) async {
     try {
       final userCredential = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       final firebaseUser = userCredential.user;
@@ -57,7 +64,7 @@ class AuthFirebaseDatasource {
         return Error(UnknownSignInError());
       }
 
-      final user = User.fromJson(userData as Map<String, dynamic>);
+      final user = AuthenticatedUser.fromJson(userData as Map<String, dynamic>);
       return Success(user);
     } on FirebaseAuthException catch (exception) {
       return switch (exception.code) {

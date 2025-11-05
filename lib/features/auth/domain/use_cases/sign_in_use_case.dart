@@ -8,6 +8,11 @@ class SignInUseCase {
 
   final AuthRepository _authRepository;
 
-  Future<Result<SignInError, User>> call({required String email, required String password}) =>
-      _authRepository.signIn(email: email, password: password);
+  Future<Result<SignInError, User>> call({required String email, required String password}) async {
+    final signInResult = await _authRepository.signIn(email: email, password: password);
+    return signInResult.when(Error.new, (user) async {
+      await _authRepository.storeUser(user);
+      return Success(user);
+    });
+  }
 }

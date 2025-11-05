@@ -67,6 +67,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ],
                   ),
+                  GestureDetector(
+                    onTap: state.profilePhotoUrl == null ? cubit.uploadPhoto : null,
+                    child: CircleAvatar(
+                      radius: 60,
+                      backgroundColor: Colors.grey.shade200,
+                      backgroundImage: state.profilePhotoUrl != null ? NetworkImage(state.profilePhotoUrl!) : null,
+                      child: state.profilePhotoUrl == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
+                    ),
+                  ),
+                  MPUiConstants.gapMD,
                   TextFormField(
                     decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
                     maxLength: 16,

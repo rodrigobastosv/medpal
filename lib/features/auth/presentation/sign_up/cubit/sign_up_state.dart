@@ -1,5 +1,6 @@
 class SignUpState {
   SignUpState({
+    required this.profilePhotoUrl,
     required this.name,
     required this.lastName,
     required this.email,
@@ -7,8 +8,10 @@ class SignUpState {
     required this.passwordConfirmation,
   });
 
-  factory SignUpState.initial() => SignUpState(name: '', lastName: '', email: '', password: '', passwordConfirmation: '');
+  factory SignUpState.initial() =>
+      SignUpState(profilePhotoUrl: null, name: '', lastName: '', email: '', password: '', passwordConfirmation: '');
 
+  final String? profilePhotoUrl;
   final String name;
   final String lastName;
   final String email;
@@ -23,7 +26,15 @@ class SignUpState {
       passwordConfirmation.isNotEmpty &&
       password == passwordConfirmation;
 
-  SignUpState copyWith({String? name, String? lastName, String? email, String? password, String? passwordConfirmation}) => SignUpState(
+  SignUpState copyWith({
+    String? profilePhotoUrl,
+    String? name,
+    String? lastName,
+    String? email,
+    String? password,
+    String? passwordConfirmation,
+  }) => SignUpState(
+    profilePhotoUrl: profilePhotoUrl ?? this.profilePhotoUrl,
     name: name ?? this.name,
     lastName: lastName ?? this.lastName,
     email: email ?? this.email,

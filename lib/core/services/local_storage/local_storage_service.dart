@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,6 +36,24 @@ class LocalStorageService {
   Future<void> writeBoolValue({required String key, required bool value}) async {
     try {
       await prefs.setBool(key, value);
+    } catch (exception) {
+      log('Error writing value $value to the key $key on storage');
+    }
+  }
+
+  Map<String, dynamic>? readJsonValue(String key) {
+    try {
+      final encodedString = prefs.getString(key);
+      return encodedString != null ? jsonDecode(encodedString) : null;
+    } catch (exception) {
+      log('Error reading key $key from storage');
+      return null;
+    }
+  }
+
+  Future<void> writeJsonValue({required String key, required Map<String, dynamic> value}) async {
+    try {
+      await prefs.setString(key, jsonEncode(value));
     } catch (exception) {
       log('Error writing value $value to the key $key on storage');
     }
