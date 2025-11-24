@@ -33,7 +33,7 @@ dependencies:
   firebase_storage: ^13.0.4
 
   # Plugins / Services
-  image_picker: ^1.2.0
+  image_picker: ^1.2.1
 
   # UI
   gap: ^3.0.1
