@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:medpal/core/error/mp_error.dart';
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/auth/data/datasources/firebase/auth_firebase_datasource.dart';
@@ -21,12 +23,12 @@ class AuthRepository {
   User getUser() => _authLocalDatasource.getUser();
 
   Future<Result<SignUpError, AuthenticatedUser>> signUp({
-    required String? profilePhotoUrl,
+    required Uint8List? profilePhoto,
     required String name,
     required String lastName,
     required String email,
     required String password,
-  }) => _authFirebaseDatasource.signUp(profilePhotoUrl: profilePhotoUrl, name: name, lastName: lastName, email: email, password: password);
+  }) => _authFirebaseDatasource.signUp(profilePhoto: profilePhoto, name: name, lastName: lastName, email: email, password: password);
 
   Future<Result<MPError, void>> addUser({required AuthenticatedUser user}) => _authFirebaseDatasource.addUser(user: user);
 

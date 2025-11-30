@@ -68,12 +68,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: state.profilePhotoUrl == null ? cubit.uploadPhoto : null,
+                    onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
                     child: CircleAvatar(
                       radius: 60,
                       backgroundColor: Colors.grey.shade200,
-                      backgroundImage: state.profilePhotoUrl != null ? NetworkImage(state.profilePhotoUrl!) : null,
-                      child: state.profilePhotoUrl == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
+                      backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
+                      child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
                     ),
                   ),
                   MPUiConstants.gapMD,

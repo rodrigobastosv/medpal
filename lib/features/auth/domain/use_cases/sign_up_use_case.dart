@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/auth/data/auth_repository.dart';
 import 'package:medpal/features/auth/domain/errors/sign_up_error.dart';
@@ -8,14 +10,14 @@ class SignUpUseCase {
   final AuthRepository _authRepository;
 
   Future<Result<SignUpError, void>> call({
-    required String? profilePhotoUrl,
+    required Uint8List? profilePhoto,
     required String name,
     required String lastName,
     required String email,
     required String password,
   }) async {
     final signUpResult = await _authRepository.signUp(
-      profilePhotoUrl: profilePhotoUrl,
+      profilePhoto: profilePhoto,
       name: name,
       lastName: lastName,
       email: email,

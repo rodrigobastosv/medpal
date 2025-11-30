@@ -9,6 +9,7 @@ List<RepositoryProvider> datasourceProviders() => [
   RepositoryProvider<WelcomeLocalDatasource>(create: (context) => WelcomeLocalDatasource(localStorageService: context.read())),
   RepositoryProvider<AuthLocalDatasource>(create: (context) => AuthLocalDatasource(localStorageService: context.read())),
   RepositoryProvider<AuthFirebaseDatasource>(
-    create: (context) => AuthFirebaseDatasource(firebaseAuth: context.read(), firebaseFirestore: context.read()),
+    create: (context) =>
+        AuthFirebaseDatasource(firebaseAuth: context.read(), firebaseFirestore: context.read(), firebaseStorage: context.read()),
   ),
 ];

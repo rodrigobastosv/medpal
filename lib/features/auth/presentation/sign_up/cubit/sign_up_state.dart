@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
+
 class SignUpState {
   SignUpState({
-    required this.profilePhotoUrl,
+    required this.profilePhoto,
     required this.name,
     required this.lastName,
     required this.email,
@@ -9,9 +11,9 @@ class SignUpState {
   });
 
   factory SignUpState.initial() =>
-      SignUpState(profilePhotoUrl: null, name: '', lastName: '', email: '', password: '', passwordConfirmation: '');
+      SignUpState(profilePhoto: null, name: '', lastName: '', email: '', password: '', passwordConfirmation: '');
 
-  final String? profilePhotoUrl;
+  final Uint8List? profilePhoto;
   final String name;
   final String lastName;
   final String email;
@@ -27,14 +29,14 @@ class SignUpState {
       password == passwordConfirmation;
 
   SignUpState copyWith({
-    String? profilePhotoUrl,
+    Uint8List? profilePhoto,
     String? name,
     String? lastName,
     String? email,
     String? password,
     String? passwordConfirmation,
   }) => SignUpState(
-    profilePhotoUrl: profilePhotoUrl ?? this.profilePhotoUrl,
+    profilePhoto: profilePhoto ?? this.profilePhoto,
     name: name ?? this.name,
     lastName: lastName ?? this.lastName,
     email: email ?? this.email,

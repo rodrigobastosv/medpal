@@ -7,7 +7,7 @@ import 'package:medpal/features/welcome/presentation/welcome_cubit.dart';
 List<RepositoryProvider> cubitProviders() => [
   RepositoryProvider<WelcomeCubit>(create: (context) => WelcomeCubit(setFirstLaunchUseCase: context.read())),
   RepositoryProvider<SignUpCubit>(
-    create: (context) => SignUpCubit(cameraService: context.read(), storageService: context.read(), signUpUseCase: context.read()),
+    create: (context) => SignUpCubit(cameraService: context.read(), signUpUseCase: context.read()),
   ),
   RepositoryProvider<SignInCubit>(create: (context) => SignInCubit(signInUseCase: context.read())),
   RepositoryProvider<HomeCubit>(create: (context) => HomeCubit(getUserUseCase: context.read())),
