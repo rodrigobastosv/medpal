@@ -6,8 +6,8 @@ import 'package:medpal/core/services/local_storage/local_storage_service.dart';
 import 'package:medpal/core/services/storage/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-List<RepositoryProvider> serviceProviders(SharedPreferences prefs) => [
-  RepositoryProvider<LocalStorageService>(create: (context) => LocalStorageService(prefs: prefs)),
+List<RepositoryProvider> serviceProviders(SharedPreferences sharedPreferences) => [
+  RepositoryProvider<LocalStorageService>(create: (context) => LocalStorageService(sharedPreferences: sharedPreferences)),
   RepositoryProvider<CameraService>(create: (context) => CameraService(imagePicker: ImagePicker())),
   RepositoryProvider<StorageService>(create: (context) => StorageService(firebaseStorage: FirebaseStorage.instance)),
 ];

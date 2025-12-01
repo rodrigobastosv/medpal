@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:medpal/core/error/mp_error.dart';
+import 'package:medpal/core/error/mp_serialization_error.dart';
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/auth/domain/entities/user.dart';
 import 'package:medpal/features/auth/domain/errors/sign_in_error.dart';
@@ -59,12 +60,18 @@ class AuthFirebaseDatasource {
         'weak-password' => Error(WeakPasswordSignUpError()),
         _ => Error(UnknownSignUpError()),
       };
+    } catch (exception) {
+      return Error(UnknownSignUpError());
     }
   }
 
   Future<Result<MPError, void>> addUser({required AuthenticatedUser user}) async {
-    await usersCollection.doc(user.userId).set(user.toJson());
-    return const Success(null);
+    try {
+      await usersCollection.doc(user.userId).set(user.toJson());
+      return const Success(null);
+    } catch (exception) {
+      return Error(PJSerializationError());
+    }
   }
 
   Future<Result<SignInError, AuthenticatedUser>> signIn({required String email, required String password}) async {
@@ -92,6 +99,8 @@ class AuthFirebaseDatasource {
         'wrong-password' => Error(WrongPasswordSignInError()),
         _ => Error(UnknownSignInError()),
       };
+    } catch (exception) {
+      return Error(UnknownSignInError());
     }
   }
 }

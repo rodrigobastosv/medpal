@@ -224,6 +224,12 @@ abstract class AppLocalizations {
   /// **'Error'**
   String get error;
 
+  /// No description provided for @unknownError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Error'**
+  String get unknownError;
+
   /// No description provided for @ok.
   ///
   /// In en, this message translates to:

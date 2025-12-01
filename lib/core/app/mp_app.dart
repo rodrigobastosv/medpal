@@ -7,23 +7,20 @@ import 'package:medpal/l10n/arb/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MPApp extends StatelessWidget {
-  const MPApp({super.key});
+  const MPApp({required this.sharedPreferences, super.key});
+
+  final SharedPreferences sharedPreferences;
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<SharedPreferences>(
-    future: SharedPreferences.getInstance(),
-    builder: (context, snapshot) => snapshot.hasData
-        ? MaterialApp.router(
-            title: 'MedPal',
-            debugShowCheckedModeBanner: false,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            theme: MPTheme.lightTheme,
-            builder: (context, child) => LoaderOverlay(
-              child: MPProvider(prefs: snapshot.data!, child: child!),
-            ),
-            routerConfig: mpRouterConfig,
-          )
-        : const SizedBox.shrink(),
+  Widget build(BuildContext context) => MaterialApp.router(
+    title: 'MedPal',
+    debugShowCheckedModeBanner: false,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    theme: MPTheme.lightTheme,
+    builder: (context, child) => LoaderOverlay(
+      child: MPProvider(sharedPreferences: sharedPreferences, child: child!),
+    ),
+    routerConfig: mpRouterConfig,
   );
 }

@@ -4,13 +4,13 @@ import 'dart:developer';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-  LocalStorageService({required this.prefs});
+  LocalStorageService({required this.sharedPreferences});
 
-  final SharedPreferences prefs;
+  final SharedPreferences sharedPreferences;
 
   Future<void> clearStorage() async {
     try {
-      await prefs.clear();
+      await sharedPreferences.clear();
     } catch (exception) {
       log('Error clearing all keys from storage');
     }
@@ -18,7 +18,7 @@ class LocalStorageService {
 
   Future<void> deleteValue(String key) async {
     try {
-      await prefs.remove(key);
+      await sharedPreferences.remove(key);
     } catch (exception) {
       log('Error deleting key $key from storage');
     }
@@ -26,7 +26,7 @@ class LocalStorageService {
 
   bool? readBoolValue(String key) {
     try {
-      return prefs.getBool(key);
+      return sharedPreferences.getBool(key);
     } catch (exception) {
       log('Error reading key $key from storage');
       return null;
@@ -35,7 +35,7 @@ class LocalStorageService {
 
   Future<void> writeBoolValue({required String key, required bool value}) async {
     try {
-      await prefs.setBool(key, value);
+      await sharedPreferences.setBool(key, value);
     } catch (exception) {
       log('Error writing value $value to the key $key on storage');
     }
@@ -43,7 +43,7 @@ class LocalStorageService {
 
   Map<String, dynamic>? readJsonValue(String key) {
     try {
-      final encodedString = prefs.getString(key);
+      final encodedString = sharedPreferences.getString(key);
       return encodedString != null ? jsonDecode(encodedString) : null;
     } catch (exception) {
       log('Error reading key $key from storage');
@@ -53,7 +53,7 @@ class LocalStorageService {
 
   Future<void> writeJsonValue({required String key, required Map<String, dynamic> value}) async {
     try {
-      await prefs.setString(key, jsonEncode(value));
+      await sharedPreferences.setString(key, jsonEncode(value));
     } catch (exception) {
       log('Error writing value $value to the key $key on storage');
     }

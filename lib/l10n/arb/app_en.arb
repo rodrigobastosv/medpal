@@ -22,6 +22,7 @@
     "invalidEmail": "Invalid E-mail",
     "passwordsDoNotMatch": "Passwords do not match",
     "error": "Error",
+    "unknownError": "Unknown Error",
     "ok": "Ok",
     "emailAlreadyInUseError": "This email is already in use. Please use a different one or sign in instead.",
     "invalidEmailError": "The email address you entered is not valid. Please check and try again.",

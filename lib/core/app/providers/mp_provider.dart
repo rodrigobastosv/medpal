@@ -9,15 +9,15 @@ import 'package:medpal/core/app/providers/use_case_providers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MPProvider extends StatelessWidget {
-  const MPProvider({required this.prefs, required this.child, super.key});
+  const MPProvider({required this.sharedPreferences, required this.child, super.key});
 
-  final SharedPreferences prefs;
+  final SharedPreferences sharedPreferences;
   final Widget child;
 
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
     providers: [
-      ...serviceProviders(prefs),
+      ...serviceProviders(sharedPreferences),
       ...firebaseProviders(),
       ...datasourceProviders(),
       ...repositoryProviders(),

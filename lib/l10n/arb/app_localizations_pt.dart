@@ -79,6 +79,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get error => 'Erro';
 
   @override
+  String get unknownError => 'Erro desconhecido';
+
+  @override
   String get ok => 'Ok';
 
   @override
