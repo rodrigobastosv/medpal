@@ -53,90 +53,92 @@ class _SignUpPageState extends State<SignUpPage> {
           body: Padding(
             padding: MPUiConstants.paddingHorizontal(16),
             child: SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(l10n.signUp, style: context.textTheme.headlineMedium),
-                  Row(
-                    children: [
-                      Text(l10n.createAccountOr),
-                      TextButton(
-                        onPressed: () => context.pushNamed(MPRoute.signIn.name),
-                        style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
-                        child: Text(l10n.signIn),
-                      ),
-                    ],
-                  ),
-                  GestureDetector(
-                    onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
-                    child: CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.grey.shade200,
-                      backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
-                      child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(l10n.signUp, style: context.textTheme.headlineMedium),
+                    Row(
+                      children: [
+                        Text(l10n.createAccountOr),
+                        TextButton(
+                          onPressed: () => context.pushNamed(MPRoute.signIn.name),
+                          style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
+                          child: Text(l10n.signIn),
+                        ),
+                      ],
                     ),
-                  ),
-                  MPUiConstants.gapMD,
-                  TextFormField(
-                    decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
-                    maxLength: 16,
-                    onChanged: cubit.changeName,
-                  ),
-                  MPUiConstants.gapMD,
-                  TextFormField(
-                    decoration: InputDecoration(labelText: l10n.lastName, floatingLabelBehavior: FloatingLabelBehavior.always),
-                    maxLength: 16,
-                    onChanged: cubit.changeLastName,
-                  ),
-                  MPUiConstants.gapMD,
-                  TextFormField(
-                    decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
-                    onChanged: cubit.changeEmail,
-                    validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                  ),
-                  MPUiConstants.gapXL,
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: l10n.password,
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: GestureDetector(
-                        onTap: () => setState(() => hidePassword = !hidePassword),
-                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                    GestureDetector(
+                      onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
+                      child: CircleAvatar(
+                        radius: 60,
+                        backgroundColor: Colors.grey.shade200,
+                        backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
+                        child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
                       ),
                     ),
-                    obscureText: hidePassword,
-                    maxLength: 20,
-                    onChanged: cubit.changePassword,
-                  ),
-                  MPUiConstants.gapMD,
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: l10n.confirmPassword,
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
-                      suffixIcon: GestureDetector(
-                        onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
-                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
-                      ),
+                    MPUiConstants.gapMD,
+                    TextFormField(
+                      decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      maxLength: 16,
+                      onChanged: cubit.changeName,
                     ),
-                    obscureText: hideConfirmPassword,
-                    maxLength: 20,
-                    onChanged: cubit.changePasswordConfirmation,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (passwordConfirmation) {
-                      if (state.password.isNotNullNorEmpty) {
-                        return null;
-                      }
-                      return MPValidators.matchingPasswordsValidator(
-                        state.password,
-                        passwordConfirmation,
-                        matchingErrorMessage: l10n.passwordsDoNotMatch,
-                      );
-                    },
-                  ),
-                  MPUiConstants.gapXL,
-                  FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
-                ],
+                    MPUiConstants.gapMD,
+                    TextFormField(
+                      decoration: InputDecoration(labelText: l10n.lastName, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      maxLength: 16,
+                      onChanged: cubit.changeLastName,
+                    ),
+                    MPUiConstants.gapMD,
+                    TextFormField(
+                      decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      onChanged: cubit.changeEmail,
+                      validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                    ),
+                    MPUiConstants.gapXL,
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: l10n.password,
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        suffixIcon: GestureDetector(
+                          onTap: () => setState(() => hidePassword = !hidePassword),
+                          child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                        ),
+                      ),
+                      obscureText: hidePassword,
+                      maxLength: 20,
+                      onChanged: cubit.changePassword,
+                    ),
+                    MPUiConstants.gapMD,
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: l10n.confirmPassword,
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                        suffixIcon: GestureDetector(
+                          onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
+                          child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                        ),
+                      ),
+                      obscureText: hideConfirmPassword,
+                      maxLength: 20,
+                      onChanged: cubit.changePasswordConfirmation,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (passwordConfirmation) {
+                        if (state.password.isNotNullNorEmpty) {
+                          return null;
+                        }
+                        return MPValidators.matchingPasswordsValidator(
+                          state.password,
+                          passwordConfirmation,
+                          matchingErrorMessage: l10n.passwordsDoNotMatch,
+                        );
+                      },
+                    ),
+                    MPUiConstants.gapXL,
+                    FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
+                  ],
+                ),
               ),
             ),
           ),
