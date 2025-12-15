@@ -19,7 +19,7 @@ dependencies:
   go_router: ^17.0.0
 
   # Local Persistency
-  shared_preferences: ^2.5.3
+  shared_preferences: ^2.5.4
 
   # State Management
   bloc: ^9.1.0
