@@ -3,7 +3,9 @@ enum MPRoute {
   welcome('/welcome'),
   signIn('/sign-in'),
   signUp('/sign-up'),
-  home('/home');
+  home('/home'),
+  registerPatient('/register-patient'),
+  searchPatients('/search-patients');
 
   const MPRoute(this.path);
 

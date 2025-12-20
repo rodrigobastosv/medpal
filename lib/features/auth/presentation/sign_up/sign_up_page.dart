@@ -79,19 +79,19 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     MPUiConstants.gapMD,
                     TextFormField(
-                      decoration: InputDecoration(labelText: l10n.name, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      decoration: InputDecoration(labelText: l10n.name),
                       maxLength: 16,
                       onChanged: cubit.changeName,
                     ),
                     MPUiConstants.gapMD,
                     TextFormField(
-                      decoration: InputDecoration(labelText: l10n.lastName, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      decoration: InputDecoration(labelText: l10n.lastName),
                       maxLength: 16,
                       onChanged: cubit.changeLastName,
                     ),
                     MPUiConstants.gapMD,
                     TextFormField(
-                      decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      decoration: InputDecoration(labelText: l10n.email),
                       onChanged: cubit.changeEmail,
                       validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -100,7 +100,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: l10n.password,
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
                         suffixIcon: GestureDetector(
                           onTap: () => setState(() => hidePassword = !hidePassword),
                           child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
@@ -114,7 +113,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     TextFormField(
                       decoration: InputDecoration(
                         labelText: l10n.confirmPassword,
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
                         suffixIcon: GestureDetector(
                           onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
                           child: Icon(hidePassword ? Icons.lock_open : Icons.lock),

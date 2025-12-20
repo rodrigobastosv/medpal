@@ -237,6 +237,7 @@ class MPTheme {
     enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(MPUiConstants.radiusMD)),
     focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(MPUiConstants.radiusMD)),
     errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(MPUiConstants.radiusMD)),
+    floatingLabelBehavior: FloatingLabelBehavior.always,
   );
 
   static const AppBarTheme _lightAppBarTheme = AppBarTheme(

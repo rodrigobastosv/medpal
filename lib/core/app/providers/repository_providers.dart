@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medpal/features/auth/data/auth_repository.dart';
 import 'package:medpal/features/bootstrap/data/bootstrap_repository.dart';
+import 'package:medpal/features/patient/data/patient_repository.dart';
 import 'package:medpal/features/welcome/data/welcome_repository.dart';
 
 List<RepositoryProvider> repositoryProviders() => [
@@ -9,4 +10,5 @@ List<RepositoryProvider> repositoryProviders() => [
   RepositoryProvider<AuthRepository>(
     create: (context) => AuthRepository(authLocalDatasource: context.read(), authFirebaseDatasource: context.read()),
   ),
+  RepositoryProvider<PatientRepository>(create: (context) => PatientRepository(patientFirebaseDatasource: context.read())),
 ];

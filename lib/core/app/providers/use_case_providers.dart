@@ -4,6 +4,8 @@ import 'package:medpal/features/auth/domain/use_cases/get_user_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/sign_in_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/sign_up_use_case.dart';
 import 'package:medpal/features/bootstrap/domain/is_first_launch_use_case.dart';
+import 'package:medpal/features/patient/domain/use_cases/get_patients_use_case.dart';
+import 'package:medpal/features/patient/domain/use_cases/register_patient_use_case.dart';
 import 'package:medpal/features/welcome/domain/set_first_launch_use_case.dart';
 
 List<RepositoryProvider> useCaseProviders() => [
@@ -13,4 +15,10 @@ List<RepositoryProvider> useCaseProviders() => [
   RepositoryProvider<SignUpUseCase>(create: (context) => SignUpUseCase(authRepository: context.read())),
   RepositoryProvider<SignInUseCase>(create: (context) => SignInUseCase(authRepository: context.read())),
   RepositoryProvider<GetUserUseCase>(create: (context) => GetUserUseCase(authRepository: context.read())),
+  RepositoryProvider<RegisterPatientUseCase>(
+    create: (context) => RegisterPatientUseCase(authRepository: context.read(), patientRepository: context.read()),
+  ),
+  RepositoryProvider<GetPatientsUseCase>(
+    create: (context) => GetPatientsUseCase(authRepository: context.read(), patientRepository: context.read()),
+  ),
 ];

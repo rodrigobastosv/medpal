@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
+import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/features/auth/domain/entities/user.dart';
 import 'package:medpal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:medpal/features/home/presentation/cubit/home_state.dart';
 import 'package:medpal/features/home/presentation/widgets/add_patient_card.dart';
+import 'package:medpal/features/home/presentation/widgets/patients_search_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,7 +27,8 @@ class HomePage extends StatelessWidget {
                 ),
                 MPUiConstants.gapSM,
               ],
-              AddPatientCard(onTap: () {}),
+              AddPatientCard(onTap: () => context.pushNamed(MPRoute.registerPatient.name)),
+              PatientsSearchCard(onTap: () => context.pushNamed(MPRoute.searchPatients.name)),
             ],
           ),
         ),

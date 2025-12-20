@@ -58,7 +58,7 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(labelText: l10n.email, floatingLabelBehavior: FloatingLabelBehavior.always),
+                    decoration: InputDecoration(labelText: l10n.email),
                     onChanged: cubit.changeEmail,
                     validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -67,7 +67,6 @@ class _SignInPageState extends State<SignInPage> {
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: l10n.password,
-                      floatingLabelBehavior: FloatingLabelBehavior.always,
                       suffixIcon: GestureDetector(
                         onTap: () => setState(() => hidePassword = !hidePassword),
                         child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
