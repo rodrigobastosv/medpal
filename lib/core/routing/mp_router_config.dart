@@ -14,5 +14,5 @@ final navigatorKey = GlobalKey<NavigatorState>();
 final mpRouterConfig = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: MPRoute.bootstrap.path,
-  routes: [bootstrapRoute, welcomeRoute, signInRoute, signUpRoute, homeRoute, registerPatientRoute, searchPatientsRoute],
+  routes: [homeRoute, bootstrapRoute, welcomeRoute, signInRoute, signUpRoute, registerPatientRoute, searchPatientsRoute],
 );

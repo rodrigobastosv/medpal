@@ -7,5 +7,5 @@ import 'package:medpal/features/auth/presentation/sign_in/sign_in_page.dart';
 final signInRoute = GoRoute(
   name: MPRoute.signIn.name,
   path: MPRoute.signIn.path,
-  builder: (context, state) => BlocProvider<SignInCubit>(create: (context) => context.read(), child: const SignInPage()),
+  builder: (context, state) => BlocProvider<SignInCubit>(create: (context) => context.read<SignInCubit>(), child: const SignInPage()),
 );

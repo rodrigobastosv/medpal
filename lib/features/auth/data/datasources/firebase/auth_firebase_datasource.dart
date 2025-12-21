@@ -37,7 +37,7 @@ class AuthFirebaseDatasource {
     try {
       String? profilePhotoUrl;
       if (profilePhoto != null) {
-        final storageRef = _firebaseStorage.ref().child('patients/${DateTime.now().millisecondsSinceEpoch}.jpg');
+        final storageRef = _firebaseStorage.ref().child('users/${DateTime.now().millisecondsSinceEpoch}.jpg');
         final uploadTask = await storageRef.putData(profilePhoto);
         if (uploadTask.state == TaskState.success) {
           profilePhotoUrl = await storageRef.getDownloadURL();
