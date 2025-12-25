@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:medpal/core/presentation/mp_ui_constants.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/l10n/l10n.dart';
 
 class ProfilePhotoPicker extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
-import 'package:medpal/core/presentation/mp_loading.dart';
-import 'package:medpal/core/presentation/mp_page.dart';
-import 'package:medpal/core/presentation/mp_ui_constants.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/general/mp_loading.dart';
+import 'package:medpal/core/presentation/general/mp_page.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
+import 'package:medpal/core/routing/mp_routing_extensions.dart';
 import 'package:medpal/core/utils/mp_string_utils.dart';
 import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
@@ -36,7 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
           case HideLoadingEvent():
             context.hideLoading();
           case UserSignedUpEvent():
-            context.goNamed(MPRoute.home.name);
+            context.goRoute(MPRoute.home);
           case EmailAlreadyInUseSignUpErrorEvent():
             showErrorDialog(context, message: l10n.emailAlreadyInUseError);
           case InvalidEmailSignUpErrorEvent():
@@ -131,7 +131,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     children: [
                       Text('${l10n.alreadyHaveAnAccount}? ', style: context.textTheme.bodyMedium),
                       GestureDetector(
-                        onTap: () => context.goNamed(MPRoute.signIn.name),
+                        onTap: () => context.goRoute(MPRoute.signIn),
                         child: Text(
                           l10n.signIn,
                           style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.primary, fontWeight: FontWeight.w600),

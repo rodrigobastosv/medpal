@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medpal/core/presentation/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
 
 class MPTheme {
   MPTheme._();

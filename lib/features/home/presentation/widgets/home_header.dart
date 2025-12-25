@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medpal/core/presentation/mp_ui_constants.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/general/mp_user_avatar.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/features/auth/domain/entities/user.dart';
 import 'package:medpal/l10n/l10n.dart';
 
@@ -37,20 +38,7 @@ class HomeHeader extends StatelessWidget {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: onTapProfile,
-              child: CircleAvatar(
-                radius: MPUiConstants.radiusXL,
-                backgroundColor: context.colorScheme.primary,
-                backgroundImage: user.profilePhotoUrl != null ? NetworkImage(user.profilePhotoUrl!) : null,
-                child: user.profilePhotoUrl == null
-                    ? Text(
-                        user.initials,
-                        style: context.textTheme.titleSmall?.copyWith(color: context.colorScheme.onPrimary, fontWeight: FontWeight.bold),
-                      )
-                    : null,
-              ),
-            ),
+            MPUserAvatar(user: user, size: MPUiConstants.radiusXL, onTapAvatar: onTapProfile),
           ],
         ),
       ),

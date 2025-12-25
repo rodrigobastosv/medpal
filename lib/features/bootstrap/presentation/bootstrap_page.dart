@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:medpal/core/presentation/mp_page.dart';
+import 'package:medpal/core/presentation/general/mp_page.dart';
 import 'package:medpal/core/routing/mp_route.dart';
+import 'package:medpal/core/routing/mp_routing_extensions.dart';
 import 'package:medpal/features/bootstrap/presentation/cubit/bootstrap_cubit.dart';
 import 'package:medpal/features/bootstrap/presentation/cubit/bootstrap_presentation_events.dart';
 
@@ -13,11 +13,11 @@ class BootstrapPage extends StatelessWidget {
     onPresentationEvent: (context, event) {
       switch (event) {
         case FirstLaunchEvent():
-          context.goNamed(MPRoute.welcome.name);
+          context.goRoute(MPRoute.welcome);
         case UserSignedInEvent():
-          context.goNamed(MPRoute.home.name);
+          context.goRoute(MPRoute.home);
         case UserNotSignedInEvent():
-          context.goNamed(MPRoute.signUp.name);
+          context.goRoute(MPRoute.signUp);
       }
     },
     builder: (context, cubit, _) => const Scaffold(),

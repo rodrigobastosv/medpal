@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:medpal/core/presentation/mp_asset.dart';
-import 'package:medpal/core/presentation/mp_page.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/general/mp_asset.dart';
+import 'package:medpal/core/presentation/general/mp_page.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
+import 'package:medpal/core/routing/mp_routing_extensions.dart';
 import 'package:medpal/features/welcome/presentation/welcome_cubit.dart';
 import 'package:medpal/features/welcome/presentation/welcome_presentation_events.dart';
 import 'package:medpal/l10n/l10n.dart';
@@ -19,7 +19,7 @@ class WelcomePage extends StatelessWidget {
       onPresentationEvent: (context, event) {
         switch (event) {
           case IntroCompletedEvent():
-            context.pushNamed(MPRoute.signUp.name);
+            context.pushRoute(MPRoute.signUp);
         }
       },
       builder: (context, cubit, _) => Scaffold(

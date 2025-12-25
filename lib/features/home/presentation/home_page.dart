@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:medpal/core/routing/mp_route.dart';
+import 'package:medpal/core/routing/mp_routing_extensions.dart';
 import 'package:medpal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:medpal/features/home/presentation/cubit/home_state.dart';
 import 'package:medpal/features/home/presentation/widgets/add_patient_button.dart';
@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            HomeHeader(user: state.user, onTapProfile: () => context.pushNamed(MPRoute.profile.name)),
-            AddPatientButton(onTap: () => context.pushNamed(MPRoute.registerPatient.name)),
+            HomeHeader(user: state.user, onTapProfile: () => context.pushRoute(MPRoute.profile)),
+            AddPatientButton(onTap: () => context.pushRoute(MPRoute.registerPatient)),
             const OverviewStats(),
             const PatientsActions(),
           ],

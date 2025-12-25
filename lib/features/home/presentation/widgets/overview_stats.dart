@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 
 class OverviewStats extends StatelessWidget {
   const OverviewStats({super.key});

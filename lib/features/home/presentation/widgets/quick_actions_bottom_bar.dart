@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:medpal/core/presentation/theme_extensions.dart';
+import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
+import 'package:medpal/core/routing/mp_routing_extensions.dart';
 
 class QuickActionsBottomBar extends StatelessWidget {
   const QuickActionsBottomBar({super.key});
@@ -14,8 +14,8 @@ class QuickActionsBottomBar extends StatelessWidget {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _QuickAction(icon: Icons.search, label: 'Search', onTap: () => context.pushNamed(MPRoute.searchPatients.name)),
-        _QuickAction(icon: Icons.person_add, label: 'Add', onTap: () => context.pushNamed(MPRoute.registerPatient.name)),
+        _QuickAction(icon: Icons.search, label: 'Search', onTap: () => context.pushRoute(MPRoute.searchPatients)),
+        _QuickAction(icon: Icons.person_add, label: 'Add', onTap: () => context.pushRoute(MPRoute.registerPatient)),
         const _QuickAction(icon: Icons.calendar_today, label: 'Calendar'),
         const _QuickAction(icon: Icons.bar_chart, label: 'Reports'),
       ],
