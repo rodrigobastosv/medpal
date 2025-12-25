@@ -9,7 +9,9 @@ part of 'patient.dart';
 Patient _$PatientFromJson(Map<String, dynamic> json) => Patient(
   id: json['id'] as String,
   name: json['name'] as String,
-  dateOfBirth: DateTime.parse(json['dateOfBirth'] as String),
+  dateOfBirth: const TimestampDateTimeConverter().fromJson(
+    json['dateOfBirth'] as Object,
+  ),
   gender: $enumDecode(_$GenderEnumMap, json['gender']),
   notes: json['notes'] as String,
 );
@@ -17,7 +19,9 @@ Patient _$PatientFromJson(Map<String, dynamic> json) => Patient(
 Map<String, dynamic> _$PatientToJson(Patient instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
-  'dateOfBirth': instance.dateOfBirth.toIso8601String(),
+  'dateOfBirth': const TimestampDateTimeConverter().toJson(
+    instance.dateOfBirth,
+  ),
   'gender': _$GenderEnumMap[instance.gender]!,
   'notes': instance.notes,
 };

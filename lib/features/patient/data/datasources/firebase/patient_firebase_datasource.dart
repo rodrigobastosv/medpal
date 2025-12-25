@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:medpal/core/error/mp_error.dart';
 import 'package:medpal/core/utils/result_utils.dart';
+import 'package:medpal/features/patient/domain/entities/patient.dart';
 import 'package:medpal/features/patient/domain/enums/gender.dart';
 
 class PatientFirebaseDatasource {
@@ -26,8 +27,9 @@ class PatientFirebaseDatasource {
     return const Success(null);
   }
 
-  Stream getPatients({required String userId}) {
-    final getPatientsResult = usersCollection.doc(userId).collection('patients').snapshots();
-    return getPatientsResult;
-  }
+  Stream<List<Patient>> getPatients({required String userId}) => usersCollection
+      .doc(userId)
+      .collection('patients')
+      .snapshots()
+      .map((snapshot) => snapshot.docs.map((doc) => Patient.fromJson({'id': doc.id, ...doc.data()})).toList());
 }

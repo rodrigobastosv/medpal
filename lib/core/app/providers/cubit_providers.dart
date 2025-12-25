@@ -17,7 +17,9 @@ List<RepositoryProvider> cubitProviders() => [
     create: (context) => SignUpCubit(cameraService: context.read(), signUpUseCase: context.read()),
   ),
   RepositoryProvider<SignInCubit>(create: (context) => SignInCubit(signInUseCase: context.read())),
-  RepositoryProvider<HomeCubit>(create: (context) => HomeCubit(getUserUseCase: context.read())),
+  RepositoryProvider<HomeCubit>(
+    create: (context) => HomeCubit(getUserUseCase: context.read(), getPatientsUseCase: context.read()),
+  ),
   RepositoryProvider<RegisterPatientCubit>(create: (context) => RegisterPatientCubit(registerPatientUseCase: context.read())),
   RepositoryProvider<SearchPatientsCubit>(create: (context) => SearchPatientsCubit(getPatientsUseCase: context.read())),
   RepositoryProvider<ProfileCubit>(

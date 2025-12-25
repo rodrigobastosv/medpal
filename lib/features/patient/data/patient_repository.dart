@@ -1,6 +1,7 @@
 import 'package:medpal/core/error/mp_error.dart';
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/patient/data/datasources/firebase/patient_firebase_datasource.dart';
+import 'package:medpal/features/patient/domain/entities/patient.dart';
 import 'package:medpal/features/patient/domain/enums/gender.dart';
 
 class PatientRepository {
@@ -17,5 +18,5 @@ class PatientRepository {
     required String notes,
   }) => _patientFirebaseDatasource.registerPatient(userId: userId, name: name, dateOfBirth: dateOfBirth, gender: gender, notes: notes);
 
-  Stream getPatients({required String userId}) => _patientFirebaseDatasource.getPatients(userId: userId);
+  Stream<List<Patient>> getPatients({required String userId}) => _patientFirebaseDatasource.getPatients(userId: userId);
 }

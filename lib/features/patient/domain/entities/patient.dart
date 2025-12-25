@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:medpal/core/data/converters/timestamp_date_time_converter.dart';
 import 'package:medpal/features/patient/domain/enums/gender.dart';
 
 part 'patient.g.dart';
@@ -13,6 +14,7 @@ class Patient {
 
   final String id;
   final String name;
+  @TimestampDateTimeConverter()
   final DateTime dateOfBirth;
   final Gender gender;
   final String notes;

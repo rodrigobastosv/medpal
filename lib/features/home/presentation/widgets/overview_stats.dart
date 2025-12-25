@@ -1,44 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:medpal/core/presentation/utils/theme_extensions.dart';
+import 'package:medpal/features/home/presentation/widgets/stat_card.dart';
+import 'package:medpal/features/patient/domain/entities/patient.dart';
 
 class OverviewStats extends StatelessWidget {
-  const OverviewStats({super.key});
+  const OverviewStats({required this.patients, super.key});
+
+  final List<Patient> patients;
 
   @override
-  Widget build(BuildContext context) => const SliverToBoxAdapter(
+  Widget build(BuildContext context) => SliverToBoxAdapter(
     child: Padding(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          _StatCard(label: 'Patients', value: '24'),
-          _StatCard(label: 'Alerts', value: '2'),
-          _StatCard(label: 'Today', value: '5'),
-          _StatCard(label: 'Pending', value: '3'),
+          StatCard(label: 'Patients', value: patients.length.toString()),
+          const StatCard(label: 'Alerts', value: '2'),
+          const StatCard(label: 'Today', value: '5'),
+          const StatCard(label: 'Pending', value: '3'),
         ],
-      ),
-    ),
-  );
-}
-
-class _StatCard extends StatelessWidget {
-  const _StatCard({required this.label, required this.value});
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) => Expanded(
-    child: Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        child: Column(
-          children: [
-            Text(value, style: context.textTheme.titleLarge),
-            const SizedBox(height: 4),
-            Text(label, style: context.textTheme.bodySmall?.copyWith(color: context.colorScheme.onSurfaceVariant)),
-          ],
-        ),
       ),
     ),
   );
