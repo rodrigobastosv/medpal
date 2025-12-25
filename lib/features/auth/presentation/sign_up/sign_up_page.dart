@@ -11,6 +11,7 @@ import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_presentation_events.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_state.dart';
+import 'package:medpal/features/auth/presentation/sign_up/widgets/profile_photo_picker.dart';
 import 'package:medpal/l10n/l10n.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -47,33 +48,24 @@ class _SignUpPageState extends State<SignUpPage> {
         }
       },
       builder: (context, cubit, state) => Scaffold(
-        body: Padding(
-          padding: MPUiConstants.paddingHorizontal(16),
-          child: SafeArea(
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
             child: SingleChildScrollView(
+              padding: MPUiConstants.paddingHorizontal(MPUiConstants.spacingLG),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(l10n.signUp, style: context.textTheme.headlineMedium),
-                  Row(
-                    children: [
-                      Text(l10n.createAccountOr),
-                      TextButton(
-                        onPressed: () => context.pushNamed(MPRoute.signIn.name),
-                        style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
-                        child: Text(l10n.signIn),
-                      ),
-                    ],
+                  MPUiConstants.gapXL,
+                  Text('${l10n.createYourAccount} ✨', style: Theme.of(context).textTheme.headlineSmall, textAlign: TextAlign.center),
+                  MPUiConstants.gapSM,
+                  Text(
+                    l10n.joinMedPal,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                    textAlign: TextAlign.center,
                   ),
-                  GestureDetector(
-                    onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
-                    child: CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.grey.shade200,
-                      backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
-                      child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
-                    ),
-                  ),
+                  MPUiConstants.gapMD,
+                  ProfilePhotoPicker(image: state.profilePhoto, onTap: cubit.getProfilePhoto),
                   MPUiConstants.gapMD,
                   TextFormField(
                     decoration: InputDecoration(labelText: l10n.name),
@@ -97,6 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: l10n.password,
+                      hintText: l10n.minimumCharacters(8),
                       suffixIcon: GestureDetector(
                         onTap: () => setState(() => hidePassword = !hidePassword),
                         child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
@@ -130,8 +123,22 @@ class _SignUpPageState extends State<SignUpPage> {
                       );
                     },
                   ),
-                  MPUiConstants.gapXL,
+                  MPUiConstants.gapMD,
                   FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
+                  MPUiConstants.gapSM,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('${l10n.alreadyHaveAnAccount}? ', style: context.textTheme.bodyMedium),
+                      GestureDetector(
+                        onTap: () => context.goNamed(MPRoute.signIn.name),
+                        child: Text(
+                          l10n.signIn,
+                          style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.primary, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

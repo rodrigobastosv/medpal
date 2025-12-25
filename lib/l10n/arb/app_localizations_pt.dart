@@ -46,10 +46,39 @@ class AppLocalizationsPt extends AppLocalizations {
   String get done => 'Concluído';
 
   @override
+  String get createYourAccount => 'Cria sua conta';
+
+  @override
+  String get joinMedPal => 'Junte-se ao MedPal e comece a gerenciar seus pacientes';
+
+  @override
+  String minimumCharacters(int qty) {
+    return 'Mínimo $qty caracteres';
+  }
+
+  @override
+  String get alreadyHaveAnAccount => 'Já tem uma conta?';
+
+  @override
   String get signUp => 'Criar Conta';
 
   @override
   String get createAccountOr => 'Criar conta ou';
+
+  @override
+  String get welcomeBack => 'Bem-vindo de volta';
+
+  @override
+  String get signInDisclaimer => 'Faça login para acessar seus pacientes e insights';
+
+  @override
+  String get forgotPassword => 'Esqueceu a senha?';
+
+  @override
+  String get continueWord => 'Continuar';
+
+  @override
+  String get dontHaveAccount => 'Não tem uma conta?';
 
   @override
   String get signIn => 'Entrar';
@@ -129,4 +158,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String patientsNeedAtention(int numberOfPatientsNeedAttention) {
     return '$numberOfPatientsNeedAttention pacientes precisam de atenção hoje';
   }
+
+  @override
+  String get addProfilePicture => 'Adicionar foto de perfil';
+
+  @override
+  String get optional => 'Opcional';
 }

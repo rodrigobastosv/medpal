@@ -158,6 +158,30 @@ abstract class AppLocalizations {
   /// **'Done'**
   String get done;
 
+  /// No description provided for @createYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account'**
+  String get createYourAccount;
+
+  /// No description provided for @joinMedPal.
+  ///
+  /// In en, this message translates to:
+  /// **'Join MedPal and start managing your patients'**
+  String get joinMedPal;
+
+  /// No description provided for @minimumCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum {qty} characters'**
+  String minimumCharacters(int qty);
+
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAnAccount;
+
   /// No description provided for @signUp.
   ///
   /// In en, this message translates to:
@@ -169,6 +193,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Create an account or'**
   String get createAccountOr;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back'**
+  String get welcomeBack;
+
+  /// No description provided for @signInDisclaimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to access your patients and insights'**
+  String get signInDisclaimer;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No description provided for @continueWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueWord;
+
+  /// No description provided for @dontHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get dontHaveAccount;
 
   /// No description provided for @signIn.
   ///
@@ -319,6 +373,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{numberOfPatientsNeedAttention} patients need attention today'**
   String patientsNeedAtention(int numberOfPatientsNeedAttention);
+
+  /// No description provided for @addProfilePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Add profile picture'**
+  String get addProfilePicture;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optional;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

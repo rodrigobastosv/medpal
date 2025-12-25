@@ -10,6 +10,9 @@ class MPUiConstants {
   /// Small spacing (8px) - For compact elements, form fields
   static const double spacingSM = 8;
 
+  /// Medium spacing (12px) - For cards, buttons, general content
+  static const double spacingM = 12;
+
   /// Medium spacing (16px) - For cards, buttons, general content
   static const double spacingMD = 16;
 
@@ -180,6 +183,9 @@ class MPUiConstants {
 
   /// Small gap (8px) - For compact layouts, button spacing
   static Widget get gapSM => const Gap(MPUiConstants.spacingSM);
+
+  /// Medium gap (12px) - For standard content spacing, form fields
+  static Widget get gapM => const Gap(MPUiConstants.spacingM);
 
   /// Medium gap (16px) - For standard content spacing, form fields
   static Widget get gapMD => const Gap(MPUiConstants.spacingMD);

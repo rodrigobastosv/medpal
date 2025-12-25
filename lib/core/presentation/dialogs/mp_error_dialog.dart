@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medpal/core/presentation/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/theme_extensions.dart';
 import 'package:medpal/l10n/l10n.dart';
 
@@ -7,10 +8,10 @@ Future<void> showErrorDialog(BuildContext context, {required String message, Str
   return showDialog<void>(
     context: context,
     builder: (context) => Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      insetPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      shape: RoundedRectangleBorder(borderRadius: MPUiConstants.circularRadiusLG),
+      insetPadding: const EdgeInsets.symmetric(horizontal: MPUiConstants.spacingXL, vertical: MPUiConstants.spacingLG),
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: MPUiConstants.paddingLG,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -19,23 +20,16 @@ Future<void> showErrorDialog(BuildContext context, {required String message, Str
               textAlign: TextAlign.center,
               style: context.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600, color: context.colorScheme.onSurface),
             ),
-            const SizedBox(height: 12),
+            MPUiConstants.gapM,
             Text(
               message,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.onSurfaceVariant),
             ),
-            const SizedBox(height: 24),
+            MPUiConstants.gapLG,
             SizedBox(
               width: double.infinity,
-              child: FilledButton(
-                onPressed: () => Navigator.of(context).pop(),
-                style: FilledButton.styleFrom(
-                  backgroundColor: context.colorScheme.primary,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                ),
-                child: Text(l10n.ok.toUpperCase()),
-              ),
+              child: FilledButton(onPressed: () => Navigator.of(context).pop(), child: Text(l10n.ok.toUpperCase())),
             ),
           ],
         ),

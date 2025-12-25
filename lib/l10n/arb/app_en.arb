@@ -11,8 +11,24 @@
     "skip": "Skip",
     "next": "Next",
     "done": "Done",
+    "createYourAccount": "Create your account",
+    "joinMedPal": "Join MedPal and start managing your patients",
+    "minimumCharacters": "Minimum {qty} characters",
+    "@minimumCharacters": {
+        "placeholders": {
+            "qty": {
+                "type": "int"
+            }
+        }
+    },
+    "alreadyHaveAnAccount": "Already have an account?",
     "signUp": "Sign Up",
     "createAccountOr": "Create an account or",
+    "welcomeBack": "Welcome back",
+    "signInDisclaimer": "Sign in to access your patients and insights",
+    "forgotPassword": "Forgot Password?",
+    "continueWord": "Continue",
+    "dontHaveAccount": "Don't have an account?",
     "signIn": "Sign in",
     "name": "Name",
     "lastName": "Last Name",
@@ -54,5 +70,7 @@
                 "type": "int"
             }
         }
-    }
+    },
+    "addProfilePicture": "Add profile picture",
+    "optional": "Optional"
 }

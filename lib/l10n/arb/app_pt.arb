@@ -11,8 +11,24 @@
     "skip": "Pular",
     "next": "Próximo",
     "done": "Concluído",
+    "createYourAccount": "Cria sua conta",
+    "joinMedPal": "Junte-se ao MedPal e comece a gerenciar seus pacientes",
+    "minimumCharacters": "Mínimo {qty} caracteres",
+    "@minimumCharacters": {
+        "placeholders": {
+            "qty": {
+                "type": "int"
+            }
+        }
+    },
+    "alreadyHaveAnAccount": "Já tem uma conta?",
     "signUp": "Criar Conta",
     "createAccountOr": "Criar conta ou",
+    "welcomeBack": "Bem-vindo de volta",
+    "signInDisclaimer": "Faça login para acessar seus pacientes e insights",
+    "forgotPassword": "Esqueceu a senha?",
+    "continueWord": "Continuar",
+    "dontHaveAccount": "Não tem uma conta?",
     "signIn": "Entrar",
     "name": "Nome",
     "lastName": "Sobrenome",
@@ -54,5 +70,7 @@
                 "type": "int"
             }
         }
-    }
+    },
+    "addProfilePicture": "Adicionar foto de perfil",
+    "optional": "Opcional"
 }

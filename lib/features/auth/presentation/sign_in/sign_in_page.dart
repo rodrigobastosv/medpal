@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
+import 'package:medpal/core/presentation/mp_asset.dart';
 import 'package:medpal/core/presentation/mp_loading.dart';
 import 'package:medpal/core/presentation/mp_page.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/auth/presentation/sign_in/cubit/sign_in_cubit.dart';
@@ -48,34 +51,75 @@ class _SignInPageState extends State<SignInPage> {
         }
       },
       builder: (context, cubit, state) => Scaffold(
-        body: Padding(
-          padding: MPUiConstants.paddingHorizontal(16),
-          child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: l10n.email),
-                  onChanged: cubit.changeEmail,
-                  validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                ),
-                MPUiConstants.gapXL,
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: l10n.password,
-                    suffixIcon: GestureDetector(
-                      onTap: () => setState(() => hidePassword = !hidePassword),
-                      child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
-                    ),
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: SingleChildScrollView(
+              padding: MPUiConstants.paddingHorizontal(MPUiConstants.spacingLG),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  MPUiConstants.gapMD,
+                  Column(
+                    children: [
+                      SizedBox(height: 180, child: Lottie.asset(MPAsset.animations.hospital, fit: BoxFit.contain)),
+                      MPUiConstants.gapMD,
+                      Text('${l10n.welcomeBack} 👋', style: context.textTheme.headlineSmall, textAlign: TextAlign.center),
+                      MPUiConstants.gapXS,
+                      Text(
+                        l10n.signInDisclaimer,
+                        style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.onSurfaceVariant),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  obscureText: hidePassword,
-                  maxLength: 20,
-                  onChanged: cubit.changePassword,
-                ),
-                MPUiConstants.gapXL,
-                FilledButton(onPressed: state.isFormValid ? cubit.signIn : null, child: Text(l10n.signIn)),
-              ],
+                  MPUiConstants.gapXL,
+                  Column(
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(labelText: l10n.email),
+                        onChanged: cubit.changeEmail,
+                        validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                      ),
+                      MPUiConstants.gapXL,
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: l10n.password,
+                          suffixIcon: GestureDetector(
+                            onTap: () => setState(() => hidePassword = !hidePassword),
+                            child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
+                          ),
+                        ),
+                        obscureText: hidePassword,
+                        maxLength: 20,
+                        onChanged: cubit.changePassword,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(onPressed: () {}, child: Text(l10n.forgotPassword)),
+                      ),
+                    ],
+                  ),
+                  MPUiConstants.gapM,
+                  FilledButton(onPressed: cubit.signIn, child: Text(l10n.continueWord)),
+                  MPUiConstants.gapSM,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(l10n.dontHaveAccount, style: context.textTheme.bodyMedium),
+                      MPUiConstants.gapXS,
+                      GestureDetector(
+                        onTap: () => context.pushNamed(MPRoute.signUp.name),
+                        child: Text(
+                          l10n.signUp,
+                          style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.primary, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

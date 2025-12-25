@@ -26,10 +26,10 @@ class WelcomePage extends StatelessWidget {
         backgroundColor: context.theme.primaryColor,
         body: IntroductionScreen(
           pages: [
-            PageViewModel(title: l10n.step1IntroTitle, body: l10n.step1IntroDescription, image: Image.asset(MPAsset.welcome1)),
-            PageViewModel(title: l10n.step2IntroTitle, body: l10n.step2IntroDescription, image: Image.asset(MPAsset.welcome2)),
-            PageViewModel(title: l10n.step3IntroTitle, body: l10n.step3IntroDescription, image: Image.asset(MPAsset.welcome3)),
-            PageViewModel(title: l10n.step4IntroTitle, body: l10n.step4IntroDescription, image: Image.asset(MPAsset.welcome4)),
+            PageViewModel(title: l10n.step1IntroTitle, body: l10n.step1IntroDescription, image: Image.asset(MPAsset.images.welcome1)),
+            PageViewModel(title: l10n.step2IntroTitle, body: l10n.step2IntroDescription, image: Image.asset(MPAsset.images.welcome2)),
+            PageViewModel(title: l10n.step3IntroTitle, body: l10n.step3IntroDescription, image: Image.asset(MPAsset.images.welcome3)),
+            PageViewModel(title: l10n.step4IntroTitle, body: l10n.step4IntroDescription, image: Image.asset(MPAsset.images.welcome4)),
           ],
           next: Text(l10n.next),
           done: Text(l10n.done),
