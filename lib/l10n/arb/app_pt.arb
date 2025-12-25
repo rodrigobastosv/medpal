@@ -72,5 +72,18 @@
         }
     },
     "addProfilePicture": "Adicionar foto de perfil",
-    "optional": "Opcional"
+    "optional": "Opcional",
+    "genderMale": "Masculino",
+    "genderFemale": "Feminino",
+    "genderOther": "Outro",
+    "basicInformation": "Informações básicas",
+    "demographics": "Dados demográficos",
+    "notes": "Observações",
+    "fullNameLabel": "Nome completo",
+    "fullNameRequired": "Nome é obrigatório",
+    "birthDateLabel": "Data de nascimento",
+    "birthDateHint": "DD / MM / AAAA",
+    "genderLabel": "Gênero",
+    "notesHint": "Informações adicionais, alergias, observações...",
+    "savePatient": "Salvar paciente"
 }

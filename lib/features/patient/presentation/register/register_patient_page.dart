@@ -1,24 +1,120 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
+import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
+import 'package:medpal/core/presentation/general/mp_loading.dart';
+import 'package:medpal/core/presentation/general/mp_page.dart';
+import 'package:medpal/core/utils/mp_validators.dart';
+import 'package:medpal/features/patient/domain/enums/gender.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_cubit.dart';
+import 'package:medpal/features/patient/presentation/register/cubit/register_patient_presentation_events.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_state.dart';
+import 'package:medpal/features/patient/presentation/register/widgets/register_section.dart';
+import 'package:medpal/l10n/l10n.dart';
 
-class RegisterPatientPage extends StatelessWidget {
+class RegisterPatientPage extends StatefulWidget {
   const RegisterPatientPage({super.key});
 
   @override
+  State<RegisterPatientPage> createState() => _RegisterPatientPageState();
+}
+
+class _RegisterPatientPageState extends State<RegisterPatientPage> {
+  final _birthDateController = TextEditingController();
+
+  @override
+  void dispose() {
+    _birthDateController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final cubit = context.read<RegisterPatientCubit>();
-    return BlocBuilder<RegisterPatientCubit, RegisterPatientState>(
-      builder: (context, state) => Scaffold(
-        body: Column(
-          children: [
-            TextField(
-              decoration: const InputDecoration(labelText: 'Name'),
-              onChanged: cubit.changeName,
+    final l10n = context.l10n;
+    return MPPage<RegisterPatientCubit, RegisterPatientState, RegisterPatientPresentationEvent>(
+      onPresentationEvent: (context, event) {
+        switch (event) {
+          case ShowLoadingEvent():
+            context.showLoading();
+          case HideLoadingEvent():
+            context.hideLoading();
+          case ErrorEvent():
+            showErrorDialog(context, message: event.errorMessage);
+          case PatientRegisteredEvent():
+            context.pop();
+        }
+      },
+      builder: (context, cubit, state) => Scaffold(
+        body: Padding(
+          padding: MPUiConstants.paddingHorizontal(MPUiConstants.spacingLG),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  RegisterSection(
+                    title: l10n.basicInformation,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(labelText: l10n.fullNameLabel),
+                        onChanged: cubit.changeName,
+                        validator: (name) => MPValidators.requiredFieldValidator(name, errorMessage: l10n.fullNameRequired),
+                      ),
+                      MPUiConstants.gapMD,
+                      TextFormField(
+                        controller: _birthDateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          labelText: l10n.birthDateLabel,
+                          hintText: l10n.birthDateHint,
+                          suffixIcon: const Icon(Icons.calendar_today),
+                        ),
+                        onTap: () async {
+                          final now = DateTime.now();
+                          final pickedDateTime = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime(now.year),
+                            firstDate: DateTime(1900),
+                            lastDate: now,
+                          );
+
+                          if (pickedDateTime != null) {
+                            _birthDateController.text =
+                                '${pickedDateTime.day.toString().padLeft(2, '0')}/'
+                                '${pickedDateTime.month.toString().padLeft(2, '0')}/'
+                                '${pickedDateTime.year}';
+                            cubit.changeDateOfBirth(pickedDateTime);
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                  RegisterSection(
+                    title: l10n.demographics,
+                    children: [
+                      DropdownButtonFormField<Gender>(
+                        decoration: InputDecoration(labelText: l10n.genderLabel),
+                        items: Gender.values.map((gender) => DropdownMenuItem(value: gender, child: Text(gender.label(l10n)))).toList(),
+                        onChanged: cubit.changeGender,
+                      ),
+                    ],
+                  ),
+                  RegisterSection(
+                    title: l10n.notes,
+                    children: [
+                      TextFormField(
+                        maxLines: 4,
+                        decoration: InputDecoration(hintText: l10n.notesHint),
+                        onChanged: cubit.changeNotes,
+                      ),
+                    ],
+                  ),
+                  MPUiConstants.gapXL,
+                  FilledButton(onPressed: cubit.registerPatient, child: Text(l10n.savePatient)),
+                ],
+              ),
             ),
-            FilledButton(onPressed: state.isFormValid ? cubit.registerPatient : null, child: const Text('Register')),
-          ],
+          ),
         ),
       ),
     );

@@ -129,7 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('${l10n.alreadyHaveAnAccount}? ', style: context.textTheme.bodyMedium),
+                      Text('${l10n.alreadyHaveAnAccount} ', style: context.textTheme.bodyMedium),
                       GestureDetector(
                         onTap: () => context.goRoute(MPRoute.signIn),
                         child: Text(

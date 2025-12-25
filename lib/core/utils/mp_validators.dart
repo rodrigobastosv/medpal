@@ -16,4 +16,7 @@ abstract class MPValidators {
     }
     return null;
   }
+
+  static String? requiredFieldValidator(String? value, {required String errorMessage}) =>
+      value != null && value.isNotEmpty ? null : errorMessage;
 }

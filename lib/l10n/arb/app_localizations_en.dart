@@ -161,4 +161,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get optional => 'Optional';
+
+  @override
+  String get genderMale => 'Male';
+
+  @override
+  String get genderFemale => 'Female';
+
+  @override
+  String get genderOther => 'Other';
+
+  @override
+  String get basicInformation => 'Basic information';
+
+  @override
+  String get demographics => 'Demographics';
+
+  @override
+  String get notes => 'Notes';
+
+  @override
+  String get fullNameLabel => 'Full name';
+
+  @override
+  String get fullNameRequired => 'Name is required';
+
+  @override
+  String get birthDateLabel => 'Date of birth';
+
+  @override
+  String get birthDateHint => 'DD / MM / YYYY';
+
+  @override
+  String get genderLabel => 'Gender';
+
+  @override
+  String get notesHint => 'Additional information, allergies, observations...';
+
+  @override
+  String get savePatient => 'Save patient';
 }
