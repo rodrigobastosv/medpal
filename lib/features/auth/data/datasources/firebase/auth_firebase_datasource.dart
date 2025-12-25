@@ -36,23 +36,19 @@ class AuthFirebaseDatasource {
     required String password,
   }) async {
     try {
+      final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      final userId = userCredential.user!.uid;
+
       String? profilePhotoUrl;
       if (profilePhoto != null) {
-        final storageRef = _firebaseStorage.ref().child('users/${DateTime.now().millisecondsSinceEpoch}.jpg');
+        final storageRef = _firebaseStorage.ref().child('users/$userId/profile/${DateTime.now().millisecondsSinceEpoch}.jpg');
         final uploadTask = await storageRef.putData(profilePhoto);
         if (uploadTask.state == TaskState.success) {
           profilePhotoUrl = await storageRef.getDownloadURL();
         }
       }
 
-      final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      final user = AuthenticatedUser(
-        userId: userCredential.user!.uid,
-        profilePhotoUrl: profilePhotoUrl,
-        name: name,
-        lastName: lastName,
-        email: email,
-      );
+      final user = AuthenticatedUser(userId: userId, profilePhotoUrl: profilePhotoUrl, name: name, lastName: lastName, email: email);
       return Success(user);
     } on FirebaseAuthException catch (exception) {
       return switch (exception.code) {
