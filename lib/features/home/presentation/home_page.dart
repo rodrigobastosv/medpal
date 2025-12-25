@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            const HomeHeader(),
+            HomeHeader(user: state.user, onTapProfile: () => context.pushNamed(MPRoute.profile.name)),
             AddPatientButton(onTap: () => context.pushNamed(MPRoute.registerPatient.name)),
             const OverviewStats(),
             const PatientsActions(),

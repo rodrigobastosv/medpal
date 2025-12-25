@@ -23,4 +23,6 @@ class AuthenticatedUser extends User {
   final String name;
   final String lastName;
   final String email;
+
+  String get initials => '${name.isNotEmpty ? name[0] : ''}${lastName.isNotEmpty ? lastName[0] : ''}'.toUpperCase();
 }

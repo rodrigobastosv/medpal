@@ -1,9 +1,8 @@
-import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
 import 'package:medpal/core/presentation/mp_loading.dart';
+import 'package:medpal/core/presentation/mp_page.dart';
 import 'package:medpal/core/presentation/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
@@ -28,9 +27,8 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final cubit = context.read<SignUpCubit>();
-    return BlocPresentationListener<SignUpCubit, SignUpPresentationEvent>(
-      listener: (context, event) {
+    return MPPage<SignUpCubit, SignUpState, SignUpPresentationEvent>(
+      onPresentationEvent: (context, event) {
         switch (event) {
           case ShowLoadingEvent():
             context.showLoading();
@@ -48,95 +46,93 @@ class _SignUpPageState extends State<SignUpPage> {
             showErrorDialog(context, message: l10n.unknownSignUpError);
         }
       },
-      child: BlocBuilder<SignUpCubit, SignUpState>(
-        builder: (context, state) => Scaffold(
-          body: Padding(
-            padding: MPUiConstants.paddingHorizontal(16),
-            child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(l10n.signUp, style: context.textTheme.headlineMedium),
-                    Row(
-                      children: [
-                        Text(l10n.createAccountOr),
-                        TextButton(
-                          onPressed: () => context.pushNamed(MPRoute.signIn.name),
-                          style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
-                          child: Text(l10n.signIn),
-                        ),
-                      ],
+      builder: (context, cubit, state) => Scaffold(
+        body: Padding(
+          padding: MPUiConstants.paddingHorizontal(16),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(l10n.signUp, style: context.textTheme.headlineMedium),
+                  Row(
+                    children: [
+                      Text(l10n.createAccountOr),
+                      TextButton(
+                        onPressed: () => context.pushNamed(MPRoute.signIn.name),
+                        style: const ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.zero)),
+                        child: Text(l10n.signIn),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
+                    child: CircleAvatar(
+                      radius: 60,
+                      backgroundColor: Colors.grey.shade200,
+                      backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
+                      child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
                     ),
-                    GestureDetector(
-                      onTap: state.profilePhoto == null ? cubit.getProfilePhoto : null,
-                      child: CircleAvatar(
-                        radius: 60,
-                        backgroundColor: Colors.grey.shade200,
-                        backgroundImage: state.profilePhoto != null ? MemoryImage(state.profilePhoto!) : null,
-                        child: state.profilePhoto == null ? const Icon(Icons.camera_alt_rounded, size: 40) : null,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.name),
+                    maxLength: 16,
+                    onChanged: cubit.changeName,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.lastName),
+                    maxLength: 16,
+                    onChanged: cubit.changeLastName,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(labelText: l10n.email),
+                    onChanged: cubit.changeEmail,
+                    validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  ),
+                  MPUiConstants.gapXL,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: l10n.password,
+                      suffixIcon: GestureDetector(
+                        onTap: () => setState(() => hidePassword = !hidePassword),
+                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
                       ),
                     ),
-                    MPUiConstants.gapMD,
-                    TextFormField(
-                      decoration: InputDecoration(labelText: l10n.name),
-                      maxLength: 16,
-                      onChanged: cubit.changeName,
-                    ),
-                    MPUiConstants.gapMD,
-                    TextFormField(
-                      decoration: InputDecoration(labelText: l10n.lastName),
-                      maxLength: 16,
-                      onChanged: cubit.changeLastName,
-                    ),
-                    MPUiConstants.gapMD,
-                    TextFormField(
-                      decoration: InputDecoration(labelText: l10n.email),
-                      onChanged: cubit.changeEmail,
-                      validator: (email) => MPValidators.emailValidator(email, errorMessage: l10n.invalidEmail),
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                    ),
-                    MPUiConstants.gapXL,
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: l10n.password,
-                        suffixIcon: GestureDetector(
-                          onTap: () => setState(() => hidePassword = !hidePassword),
-                          child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
-                        ),
+                    obscureText: hidePassword,
+                    maxLength: 20,
+                    onChanged: cubit.changePassword,
+                  ),
+                  MPUiConstants.gapMD,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: l10n.confirmPassword,
+                      suffixIcon: GestureDetector(
+                        onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
+                        child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
                       ),
-                      obscureText: hidePassword,
-                      maxLength: 20,
-                      onChanged: cubit.changePassword,
                     ),
-                    MPUiConstants.gapMD,
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: l10n.confirmPassword,
-                        suffixIcon: GestureDetector(
-                          onTap: () => setState(() => hideConfirmPassword = !hideConfirmPassword),
-                          child: Icon(hidePassword ? Icons.lock_open : Icons.lock),
-                        ),
-                      ),
-                      obscureText: hideConfirmPassword,
-                      maxLength: 20,
-                      onChanged: cubit.changePasswordConfirmation,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (passwordConfirmation) {
-                        if (state.password.isNotNullNorEmpty) {
-                          return null;
-                        }
-                        return MPValidators.matchingPasswordsValidator(
-                          state.password,
-                          passwordConfirmation,
-                          matchingErrorMessage: l10n.passwordsDoNotMatch,
-                        );
-                      },
-                    ),
-                    MPUiConstants.gapXL,
-                    FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
-                  ],
-                ),
+                    obscureText: hideConfirmPassword,
+                    maxLength: 20,
+                    onChanged: cubit.changePasswordConfirmation,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (passwordConfirmation) {
+                      if (state.password.isNotNullNorEmpty) {
+                        return null;
+                      }
+                      return MPValidators.matchingPasswordsValidator(
+                        state.password,
+                        passwordConfirmation,
+                        matchingErrorMessage: l10n.passwordsDoNotMatch,
+                      );
+                    },
+                  ),
+                  MPUiConstants.gapXL,
+                  FilledButton(onPressed: state.isFormValid ? cubit.signUp : null, child: Text(l10n.signUp)),
+                ],
               ),
             ),
           ),

@@ -26,8 +26,9 @@ class BootstrapCubit extends Cubit<void> with BlocPresentationMixin<void, Bootst
     final user = _getUserUseCase;
     if (user is AuthenticatedUser) {
       emitPresentation(UserSignedInEvent());
+      return;
     }
 
-    emitPresentation(UserSignedInEvent());
+    emitPresentation(UserNotSignedInEvent());
   }
 }

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:medpal/core/error/mp_error.dart';
 import 'package:medpal/core/error/mp_serialization_error.dart';
+import 'package:medpal/core/error/mp_unknown_error.dart';
 import 'package:medpal/core/utils/result_utils.dart';
 import 'package:medpal/features/auth/domain/entities/user.dart';
 import 'package:medpal/features/auth/domain/errors/sign_in_error.dart';
@@ -101,6 +102,15 @@ class AuthFirebaseDatasource {
       };
     } catch (exception) {
       return Error(UnknownSignInError());
+    }
+  }
+
+  Future<Result<MPError, void>> signOut() async {
+    try {
+      await _firebaseAuth.signOut();
+      return const Success(null);
+    } catch (exception) {
+      return Error(MPUnknownError());
     }
   }
 }

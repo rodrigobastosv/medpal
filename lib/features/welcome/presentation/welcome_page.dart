@@ -1,9 +1,8 @@
-import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:medpal/core/presentation/mp_asset.dart';
+import 'package:medpal/core/presentation/mp_page.dart';
 import 'package:medpal/core/presentation/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/features/welcome/presentation/welcome_cubit.dart';
@@ -16,15 +15,14 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final cubit = context.read<WelcomeCubit>();
-    return BlocPresentationListener<WelcomeCubit, WelcomePresentationEvent>(
-      listener: (context, event) {
+    return MPPage<WelcomeCubit, void, WelcomePresentationEvent>(
+      onPresentationEvent: (context, event) {
         switch (event) {
           case IntroCompletedEvent():
             context.pushNamed(MPRoute.signUp.name);
         }
       },
-      child: Scaffold(
+      builder: (context, cubit, _) => Scaffold(
         backgroundColor: context.theme.primaryColor,
         body: IntroductionScreen(
           pages: [

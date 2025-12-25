@@ -34,4 +34,6 @@ class AuthRepository {
 
   Future<Result<SignInError, AuthenticatedUser>> signIn({required String email, required String password}) =>
       _authFirebaseDatasource.signIn(email: email, password: password);
+
+  Future<Result<MPError, void>> signOut() => _authFirebaseDatasource.signOut();
 }

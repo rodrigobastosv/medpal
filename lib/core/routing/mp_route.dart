@@ -5,7 +5,8 @@ enum MPRoute {
   signUp('/sign-up'),
   home('/home'),
   registerPatient('/register-patient'),
-  searchPatients('/search-patients');
+  searchPatients('/search-patients'),
+  profile('/profile');
 
   const MPRoute(this.path);
 

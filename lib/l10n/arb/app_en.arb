@@ -35,5 +35,24 @@
     "wrongPasswordSignInError": "The password you entered is incorrect. Please try again.",
     "unknownSignInError": "An unexpected error occurred during sign in. Please try again later.",
     "addNewPatient": "Add New Patient",
-    "registerPatientProfile": "Register a new patient profile"
+    "registerPatientProfile": "Register a new patient profile",
+    "greetings": "Good {timeOfDay}, {name}",
+    "@greetings": {
+        "placeholders": {
+            "timeOfDay": {
+                "type": "String"
+            },
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "patientsNeedAtention": "{numberOfPatientsNeedAttention} patients need attention today",
+    "@patientsNeedAtention": {
+        "placeholders": {
+            "numberOfPatientsNeedAttention": {
+                "type": "int"
+            }
+        }
+    }
 }

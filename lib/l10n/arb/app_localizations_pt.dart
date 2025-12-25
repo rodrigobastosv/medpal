@@ -119,4 +119,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get registerPatientProfile => 'Cadastrar um novo perfil de paciente';
+
+  @override
+  String greetings(String timeOfDay, String name) {
+    return 'Boa $timeOfDay, $name';
+  }
+
+  @override
+  String patientsNeedAtention(int numberOfPatientsNeedAttention) {
+    return '$numberOfPatientsNeedAttention pacientes precisam de atenção hoje';
+  }
 }

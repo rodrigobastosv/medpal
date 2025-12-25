@@ -307,6 +307,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register a new patient profile'**
   String get registerPatientProfile;
+
+  /// No description provided for @greetings.
+  ///
+  /// In en, this message translates to:
+  /// **'Good {timeOfDay}, {name}'**
+  String greetings(String timeOfDay, String name);
+
+  /// No description provided for @patientsNeedAtention.
+  ///
+  /// In en, this message translates to:
+  /// **'{numberOfPatientsNeedAttention} patients need attention today'**
+  String patientsNeedAtention(int numberOfPatientsNeedAttention);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

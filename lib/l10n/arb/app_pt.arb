@@ -35,5 +35,24 @@
     "wrongPasswordSignInError": "A senha informada está incorreta. Tente novamente.",
     "unknownSignInError": "Ocorreu um erro inesperado durante o login. Tente novamente mais tarde.",
     "addNewPatient": "Adicionar novo paciente",
-    "registerPatientProfile": "Cadastrar um novo perfil de paciente"
+    "registerPatientProfile": "Cadastrar um novo perfil de paciente",
+    "greetings": "Boa {timeOfDay}, {name}",
+    "@greetings": {
+        "placeholders": {
+            "timeOfDay": {
+                "type": "String"
+            },
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "patientsNeedAtention": "{numberOfPatientsNeedAttention} pacientes precisam de atenção hoje",
+    "@patientsNeedAtention": {
+        "placeholders": {
+            "numberOfPatientsNeedAttention": {
+                "type": "int"
+            }
+        }
+    }
 }

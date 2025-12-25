@@ -5,6 +5,7 @@ import 'package:medpal/features/bootstrap/presentation/cubit/bootstrap_cubit.dar
 import 'package:medpal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_cubit.dart';
 import 'package:medpal/features/patient/presentation/search/cubit/search_patients_cubit.dart';
+import 'package:medpal/features/profile/presentation/cubit/profile_cubit.dart';
 import 'package:medpal/features/welcome/presentation/welcome_cubit.dart';
 
 List<RepositoryProvider> cubitProviders() => [
@@ -19,4 +20,7 @@ List<RepositoryProvider> cubitProviders() => [
   RepositoryProvider<HomeCubit>(create: (context) => HomeCubit(getUserUseCase: context.read())),
   RepositoryProvider<RegisterPatientCubit>(create: (context) => RegisterPatientCubit(registerPatientUseCase: context.read())),
   RepositoryProvider<SearchPatientsCubit>(create: (context) => SearchPatientsCubit(getPatientsUseCase: context.read())),
+  RepositoryProvider<ProfileCubit>(
+    create: (context) => ProfileCubit(getUserUseCase: context.read(), signOutUseCase: context.read()),
+  ),
 ];

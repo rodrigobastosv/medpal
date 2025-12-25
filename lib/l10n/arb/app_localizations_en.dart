@@ -116,4 +116,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registerPatientProfile => 'Register a new patient profile';
+
+  @override
+  String greetings(String timeOfDay, String name) {
+    return 'Good $timeOfDay, $name';
+  }
+
+  @override
+  String patientsNeedAtention(int numberOfPatientsNeedAttention) {
+    return '$numberOfPatientsNeedAttention patients need attention today';
+  }
 }
