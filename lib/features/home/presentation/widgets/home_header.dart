@@ -15,7 +15,12 @@ class HomeHeader extends StatelessWidget {
     final l10n = context.l10n;
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+        padding: const EdgeInsets.fromLTRB(
+          MPUiConstants.spacingMD,
+          MPUiConstants.spacingLG,
+          MPUiConstants.spacingMD,
+          MPUiConstants.spacingMD,
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,12 +40,15 @@ class HomeHeader extends StatelessWidget {
             GestureDetector(
               onTap: onTapProfile,
               child: CircleAvatar(
-                radius: 20,
+                radius: MPUiConstants.radiusXL,
                 backgroundColor: context.colorScheme.primary,
-                child: Text(
-                  user.initials,
-                  style: context.textTheme.titleSmall?.copyWith(color: context.colorScheme.onPrimary, fontWeight: FontWeight.bold),
-                ),
+                backgroundImage: user.profilePhotoUrl != null ? NetworkImage(user.profilePhotoUrl!) : null,
+                child: user.profilePhotoUrl == null
+                    ? Text(
+                        user.initials,
+                        style: context.textTheme.titleSmall?.copyWith(color: context.colorScheme.onPrimary, fontWeight: FontWeight.bold),
+                      )
+                    : null,
               ),
             ),
           ],
