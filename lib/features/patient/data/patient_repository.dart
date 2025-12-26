@@ -15,8 +15,18 @@ class PatientRepository {
     required String name,
     required DateTime dateOfBirth,
     required Gender gender,
-    required String notes,
-  }) => _patientFirebaseDatasource.registerPatient(userId: userId, name: name, dateOfBirth: dateOfBirth, gender: gender, notes: notes);
+    String? contactName,
+    String? phoneNumber,
+    String? notes,
+  }) => _patientFirebaseDatasource.registerPatient(
+    userId: userId,
+    name: name,
+    dateOfBirth: dateOfBirth,
+    gender: gender,
+    contactName: contactName,
+    phoneNumber: phoneNumber,
+    notes: notes,
+  );
 
   Stream<List<Patient>> getPatients({required String userId}) => _patientFirebaseDatasource.getPatients(userId: userId);
 }

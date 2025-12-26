@@ -85,5 +85,9 @@
     "birthDateHint": "DD / MM / YYYY",
     "genderLabel": "Gender",
     "notesHint": "Additional information, allergies, observations...",
-    "savePatient": "Save patient"
+    "savePatient": "Save patient",
+    "phone": "Phone",
+    "missingRequiredInformation": "Missing required information",
+    "contactInformation": "Contact Information",
+    "extraInformation": "Extra Information"
 }

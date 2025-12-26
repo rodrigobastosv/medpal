@@ -13,7 +13,14 @@ class RegisterPatientUseCase {
   final AuthRepository _authRepository;
   final PatientRepository _patientRepository;
 
-  Future<Result<MPError, void>> call({required String name, required DateTime dateOfBirth, required Gender gender, required String notes}) {
+  Future<Result<MPError, void>> call({
+    required String name,
+    required DateTime dateOfBirth,
+    required Gender gender,
+    String? contactName,
+    String? phoneNumber,
+    String? notes,
+  }) {
     final user = _authRepository.getUser();
     return switch (user) {
       GuestUser() => throw UnimplementedError(),
@@ -22,6 +29,8 @@ class RegisterPatientUseCase {
         name: name,
         dateOfBirth: dateOfBirth,
         gender: gender,
+        contactName: contactName,
+        phoneNumber: phoneNumber,
         notes: notes,
       ),
     };

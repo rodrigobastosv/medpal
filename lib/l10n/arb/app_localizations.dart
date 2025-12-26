@@ -463,6 +463,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save patient'**
   String get savePatient;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @missingRequiredInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Missing required information'**
+  String get missingRequiredInformation;
+
+  /// No description provided for @contactInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Information'**
+  String get contactInformation;
+
+  /// No description provided for @extraInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra Information'**
+  String get extraInformation;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

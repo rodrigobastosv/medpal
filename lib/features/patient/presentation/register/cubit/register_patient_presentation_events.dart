@@ -10,4 +10,6 @@ class ErrorEvent extends RegisterPatientPresentationEvent {
   final String errorMessage;
 }
 
+class IncompleteInformationErrorEvent extends RegisterPatientPresentationEvent {}
+
 class PatientRegisteredEvent extends RegisterPatientPresentationEvent {}

@@ -21,6 +21,14 @@ class RegisterPatientCubit extends Cubit<RegisterPatientState>
     emit(state.copyWith(dateOfBirth: dateOfBirth));
   }
 
+  void changeContactName(String? contactName) {
+    emit(state.copyWith(contactName: contactName));
+  }
+
+  void changePhoneNumber(String? phoneNumber) {
+    emit(state.copyWith(phoneNumber: phoneNumber));
+  }
+
   void changeGender(Gender? gender) {
     emit(state.copyWith(gender: gender));
   }
@@ -30,12 +38,21 @@ class RegisterPatientCubit extends Cubit<RegisterPatientState>
   }
 
   Future<void> registerPatient() async {
+    final dateOfBirth = state.dateOfBirth;
+    final gender = state.gender;
+    if (dateOfBirth == null || gender == null) {
+      emitPresentation(IncompleteInformationErrorEvent());
+      return;
+    }
+
     emitPresentation(ShowLoadingEvent());
     final registerResult = await _registerPatientUseCase(
       name: state.name,
-      dateOfBirth: state.dateOfBirth!,
-      gender: state.gender!,
-      notes: state.notes!,
+      dateOfBirth: dateOfBirth,
+      gender: gender,
+      contactName: state.contactName,
+      phoneNumber: state.phoneNumber,
+      notes: state.notes,
     );
     emitPresentation(HideLoadingEvent());
 

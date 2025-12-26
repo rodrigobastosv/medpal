@@ -6,7 +6,14 @@ part 'patient.g.dart';
 
 @JsonSerializable()
 class Patient {
-  Patient({required this.id, required this.name, required this.dateOfBirth, required this.gender, required this.notes});
+  Patient({
+    required this.id,
+    required this.name,
+    required this.dateOfBirth,
+    required this.phoneNumber,
+    required this.gender,
+    required this.notes,
+  });
 
   factory Patient.fromJson(Map<String, dynamic> json) => _$PatientFromJson(json);
 
@@ -16,6 +23,7 @@ class Patient {
   final String name;
   @TimestampDateTimeConverter()
   final DateTime dateOfBirth;
+  final String? phoneNumber;
   final Gender gender;
   final String notes;
 }

@@ -200,4 +200,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get savePatient => 'Save patient';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get missingRequiredInformation => 'Missing required information';
+
+  @override
+  String get contactInformation => 'Contact Information';
+
+  @override
+  String get extraInformation => 'Extra Information';
 }

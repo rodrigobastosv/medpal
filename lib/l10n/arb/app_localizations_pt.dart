@@ -203,4 +203,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get savePatient => 'Salvar paciente';
+
+  @override
+  String get phone => 'Telefone';
+
+  @override
+  String get missingRequiredInformation => 'Informações obrigatórias faltando';
+
+  @override
+  String get contactInformation => 'Informações de Contato';
+
+  @override
+  String get extraInformation => 'Informações Adicionais';
 }

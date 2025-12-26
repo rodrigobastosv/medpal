@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
 import 'package:medpal/core/presentation/general/mp_loading.dart';
@@ -40,6 +41,8 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
             context.hideLoading();
           case ErrorEvent():
             showErrorDialog(context, message: event.errorMessage);
+          case IncompleteInformationErrorEvent():
+            showErrorDialog(context, message: l10n.missingRequiredInformation);
           case PatientRegisteredEvent():
             context.pop();
         }
@@ -90,6 +93,22 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
                     ],
                   ),
                   RegisterSection(
+                    title: l10n.contactInformation,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(labelText: l10n.name),
+                        onChanged: cubit.changeContactName,
+                      ),
+                      MPUiConstants.gapM,
+                      InternationalPhoneNumberInput(
+                        onInputChanged: (number) => cubit.changePhoneNumber(number.phoneNumber),
+                        keyboardType: const TextInputType.numberWithOptions(signed: true, decimal: true),
+                        countries: const ['US', 'BR'],
+                        inputDecoration: InputDecoration(labelText: l10n.phone, floatingLabelBehavior: FloatingLabelBehavior.always),
+                      ),
+                    ],
+                  ),
+                  RegisterSection(
                     title: l10n.demographics,
                     children: [
                       DropdownButtonFormField<Gender>(
@@ -100,11 +119,11 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
                     ],
                   ),
                   RegisterSection(
-                    title: l10n.notes,
+                    title: l10n.extraInformation,
                     children: [
                       TextFormField(
                         maxLines: 4,
-                        decoration: InputDecoration(hintText: l10n.notesHint),
+                        decoration: InputDecoration(labelText: l10n.notes, hintText: l10n.notesHint),
                         onChanged: cubit.changeNotes,
                       ),
                     ],

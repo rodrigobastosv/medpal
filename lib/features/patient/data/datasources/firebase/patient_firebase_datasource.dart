@@ -16,12 +16,16 @@ class PatientFirebaseDatasource {
     required String name,
     required DateTime dateOfBirth,
     required Gender gender,
-    required String notes,
+    String? contactName,
+    String? phoneNumber,
+    String? notes,
   }) async {
     await usersCollection.doc(userId).collection('patients').add({
       'name': name,
       'dateOfBirth': dateOfBirth,
       'gender': gender.name,
+      'contactName': contactName,
+      'phoneNumber': phoneNumber,
       'notes': notes,
     });
     return const Success(null);
