@@ -26,4 +26,17 @@ class Patient {
   final String? phoneNumber;
   final Gender gender;
   final String notes;
+
+  String get lastName => name.split(' ').length > 1 ? name.split(' ').last : '';
+
+  String get initials => '${name.isNotEmpty ? name[0] : ''}${lastName.isNotEmpty ? lastName[0] : ''}'.toUpperCase();
+
+  String get age {
+    final now = DateTime.now();
+    var age = now.year - dateOfBirth.year;
+    if (now.month < dateOfBirth.month || (now.month == dateOfBirth.month && now.day < dateOfBirth.day)) {
+      age--;
+    }
+    return age.toString();
+  }
 }

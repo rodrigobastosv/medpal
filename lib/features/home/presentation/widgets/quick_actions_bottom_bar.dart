@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:medpal/core/presentation/utils/theme_extensions.dart';
 import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/core/routing/mp_routing_extensions.dart';
+import 'package:medpal/features/patient/domain/entities/patient.dart';
+import 'package:medpal/features/patient/presentation/list/list_patients_route.dart';
 
 class QuickActionsBottomBar extends StatelessWidget {
-  const QuickActionsBottomBar({super.key});
+  const QuickActionsBottomBar({required this.patients, super.key});
+
+  final List<Patient> patients;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -14,7 +18,11 @@ class QuickActionsBottomBar extends StatelessWidget {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _QuickAction(icon: Icons.search, label: 'Search', onTap: () => context.pushRoute(MPRoute.searchPatients)),
+        _QuickAction(
+          icon: Icons.search,
+          label: 'Search',
+          onTap: () => context.pushRoute(MPRoute.listPatients, extra: ListPatientsRouteExtra(patients: patients)),
+        ),
         _QuickAction(icon: Icons.person_add, label: 'Add', onTap: () => context.pushRoute(MPRoute.registerPatient)),
         const _QuickAction(icon: Icons.calendar_today, label: 'Calendar'),
         const _QuickAction(icon: Icons.bar_chart, label: 'Reports'),

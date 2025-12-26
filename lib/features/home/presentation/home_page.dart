@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const SafeArea(child: QuickActionsBottomBar()),
+      bottomNavigationBar: SafeArea(child: QuickActionsBottomBar(patients: state.patients)),
     ),
   );
 }
