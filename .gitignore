@@ -1,3 +1,7 @@
+# build_runner generated
+*.g.dart
+*.gen.dart
+
 # Miscellaneous
 *.class
 *.log
