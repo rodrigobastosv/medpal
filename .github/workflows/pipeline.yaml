@@ -33,12 +33,10 @@ jobs:
         run: dart run build_runner build
 
       - name: Check code formatting
-        run: dart format --set-exit-if-changed .
+        run: ./scripts/quality/check-code-format.sh
 
-      - name: Run Flutter analyze
-        run: |
-          flutter analyze
-          dart analyze
+      - name: Run Linter
+        run: ./scripts/quality/linter.sh
 
       - name: Run tests with coverage
         run: flutter test --coverage
