@@ -6,4 +6,8 @@ import 'package:medpal/features/patient/presentation/list/cubit/list_patients_st
 
 class ListPatientsCubit extends Cubit<ListPatientsState> with BlocPresentationMixin<ListPatientsState, ListPatientsPresentationEvent> {
   ListPatientsCubit({required List<Patient> patients}) : super(ListPatientsState.initial(patients: patients));
+
+  void changeSearchQuery(String? query) {
+    emit(state.copyWith(searchQuery: query ?? ''));
+  }
 }

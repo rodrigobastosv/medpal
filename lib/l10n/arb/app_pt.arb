@@ -89,5 +89,10 @@
     "phone": "Telefone",
     "missingRequiredInformation": "Informações obrigatórias faltando",
     "contactInformation": "Informações de Contato",
-    "extraInformation": "Informações Adicionais"
+    "extraInformation": "Informações Adicionais",
+    "addPatient": "Adicionar Paciente",
+    "searchPatients": "Buscar Pacientes",
+    "allPatients": "Todos os Pacientes",
+    "patientAgeGender": "{age, plural, one{{age} ano} other{{age} anos}} • {gender}",
+    "patientLastVisit": "Última consulta: {date}"
 }

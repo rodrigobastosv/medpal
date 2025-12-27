@@ -31,12 +31,12 @@ class Patient {
 
   String get initials => '${name.isNotEmpty ? name[0] : ''}${lastName.isNotEmpty ? lastName[0] : ''}'.toUpperCase();
 
-  String get age {
+  int get age {
     final now = DateTime.now();
     var age = now.year - dateOfBirth.year;
     if (now.month < dateOfBirth.month || (now.month == dateOfBirth.month && now.day < dateOfBirth.day)) {
       age--;
     }
-    return age.toString();
+    return age;
   }
 }

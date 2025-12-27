@@ -487,6 +487,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Extra Information'**
   String get extraInformation;
+
+  /// No description provided for @addPatient.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Patient'**
+  String get addPatient;
+
+  /// No description provided for @searchPatients.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Patients'**
+  String get searchPatients;
+
+  /// No description provided for @allPatients.
+  ///
+  /// In en, this message translates to:
+  /// **'All Patients'**
+  String get allPatients;
+
+  /// No description provided for @patientAgeGender.
+  ///
+  /// In en, this message translates to:
+  /// **'{age, plural, one{{age} year} other{{age} years}} • {gender}'**
+  String patientAgeGender(num age, Object gender);
+
+  /// No description provided for @patientLastVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Last visit: {date}'**
+  String patientLastVisit(Object date);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

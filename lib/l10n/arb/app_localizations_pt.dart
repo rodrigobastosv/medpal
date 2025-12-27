@@ -215,4 +215,24 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get extraInformation => 'Informações Adicionais';
+
+  @override
+  String get addPatient => 'Adicionar Paciente';
+
+  @override
+  String get searchPatients => 'Buscar Pacientes';
+
+  @override
+  String get allPatients => 'Todos os Pacientes';
+
+  @override
+  String patientAgeGender(num age, Object gender) {
+    String _temp0 = intl.Intl.pluralLogic(age, locale: localeName, other: '$age anos', one: '$age ano');
+    return '$_temp0 • $gender';
+  }
+
+  @override
+  String patientLastVisit(Object date) {
+    return 'Última consulta: $date';
+  }
 }

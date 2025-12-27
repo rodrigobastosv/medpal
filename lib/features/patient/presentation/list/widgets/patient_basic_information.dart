@@ -10,13 +10,14 @@ class PatientBasicInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final textTheme = Theme.of(context).textTheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(patient.name, style: textTheme.titleMedium),
-        Text('${patient.age} years • ${patient.gender.label(context.l10n)}', style: textTheme.bodySmall),
-        Text('Last visit: ', style: textTheme.bodySmall?.copyWith(color: context.colorScheme.outline)),
+        Text(l10n.patientAgeGender(patient.age, patient.gender.label(l10n)), style: textTheme.bodySmall),
+        Text(l10n.patientLastVisit(DateTime.now().toString()), style: textTheme.bodySmall?.copyWith(color: context.colorScheme.outline)),
       ],
     );
   }
