@@ -63,8 +63,8 @@
             }
         }
     },
-    "patientsNeedAtention": "{numberOfPatientsNeedAttention} pacientes precisam de atenção hoje",
-    "@patientsNeedAtention": {
+    "patientsNeedAttention": "{numberOfPatientsNeedAttention} pacientes precisam de atenção hoje",
+    "@patientsNeedAttention": {
         "placeholders": {
             "numberOfPatientsNeedAttention": {
                 "type": "int"
