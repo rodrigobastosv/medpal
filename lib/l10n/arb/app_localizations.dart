@@ -368,11 +368,11 @@ abstract class AppLocalizations {
   /// **'Good {timeOfDay}, {name}'**
   String greetings(String timeOfDay, String name);
 
-  /// No description provided for @patientsNeedAtention.
+  /// No description provided for @patientsNeedAttention.
   ///
   /// In en, this message translates to:
   /// **'{numberOfPatientsNeedAttention} patients need attention today'**
-  String patientsNeedAtention(int numberOfPatientsNeedAttention);
+  String patientsNeedAttention(int numberOfPatientsNeedAttention);
 
   /// No description provided for @addProfilePicture.
   ///

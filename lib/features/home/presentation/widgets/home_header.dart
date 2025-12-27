@@ -32,7 +32,7 @@ class HomeHeader extends StatelessWidget {
                   Text(l10n.greetings('Afternoon', user.name), style: context.textTheme.titleMedium),
                   MPUiConstants.gapXS,
                   Text(
-                    l10n.patientsNeedAtention(3),
+                    l10n.patientsNeedAttention(3),
                     style: context.textTheme.bodyMedium?.copyWith(color: context.colorScheme.onSurfaceVariant),
                   ),
                 ],

@@ -152,7 +152,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String patientsNeedAtention(int numberOfPatientsNeedAttention) {
+  String patientsNeedAttention(int numberOfPatientsNeedAttention) {
     return '$numberOfPatientsNeedAttention patients need attention today';
   }
 

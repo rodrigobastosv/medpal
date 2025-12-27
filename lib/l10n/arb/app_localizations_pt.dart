@@ -155,8 +155,8 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String patientsNeedAtention(int numberOfPatientsNeedAttention) {
-    return '$numberOfPatientsNeedAttention pacientes precisam de atenção hoje';
+  String patientsNeedAttention(int numberOfPatientsNeedAttention) {
+    return '$numberOfPatientsNeedAttention patients need attention today';
   }
 
   @override
