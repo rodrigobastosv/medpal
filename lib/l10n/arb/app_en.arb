@@ -94,5 +94,12 @@
     "searchPatients": "Search Patients",
     "allPatients": "All Patients",
     "patientAgeGender": "{age, plural, one{{age} year} other{{age} years}} • {gender}",
-    "patientLastVisit": "Last visit: {date}"
+    "patientLastVisit": "Last visit: {date}",
+    "appointments": "Appointments",
+    "scheduleAppointment": "Schedule Appointment",
+    "patientsRequiringAttention": "Patients requiring attention",
+    "search": "Search",
+    "add": "Add",
+    "calendar": "Calendar",
+    "reports": "Reports"
 }

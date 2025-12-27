@@ -517,6 +517,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last visit: {date}'**
   String patientLastVisit(Object date);
+
+  /// No description provided for @appointments.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointments'**
+  String get appointments;
+
+  /// No description provided for @scheduleAppointment.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule Appointment'**
+  String get scheduleAppointment;
+
+  /// No description provided for @patientsRequiringAttention.
+  ///
+  /// In en, this message translates to:
+  /// **'Patients requiring attention'**
+  String get patientsRequiringAttention;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @calendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get calendar;
+
+  /// No description provided for @reports.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports'**
+  String get reports;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

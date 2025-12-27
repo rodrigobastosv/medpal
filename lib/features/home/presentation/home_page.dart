@@ -6,6 +6,7 @@ import 'package:medpal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:medpal/features/home/presentation/cubit/home_presentation_events.dart';
 import 'package:medpal/features/home/presentation/cubit/home_state.dart';
 import 'package:medpal/features/home/presentation/widgets/add_patient_button.dart';
+import 'package:medpal/features/home/presentation/widgets/appointments.dart';
 import 'package:medpal/features/home/presentation/widgets/home_header.dart';
 import 'package:medpal/features/home/presentation/widgets/overview_stats.dart';
 import 'package:medpal/features/home/presentation/widgets/patients_actions.dart';
@@ -23,6 +24,7 @@ class HomePage extends StatelessWidget {
             HomeHeader(user: state.user, onTapProfile: () => context.pushRoute(MPRoute.profile)),
             AddPatientButton(onTap: () => context.pushRoute(MPRoute.registerPatient)),
             OverviewStats(patients: state.patients),
+            Appointments(onTapSchedule: () => context.pushRoute(MPRoute.createAppointment)),
             const PatientsActions(),
           ],
         ),

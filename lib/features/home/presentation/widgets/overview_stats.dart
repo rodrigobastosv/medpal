@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
 import 'package:medpal/features/home/presentation/widgets/stat_card.dart';
 import 'package:medpal/features/patient/domain/entities/patient.dart';
 
@@ -10,7 +11,7 @@ class OverviewStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SliverToBoxAdapter(
     child: Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(MPUiConstants.spacingMD, MPUiConstants.spacingMD, MPUiConstants.spacingMD, 0),
       child: Row(
         children: [
           StatCard(label: 'Patients', value: patients.length.toString()),

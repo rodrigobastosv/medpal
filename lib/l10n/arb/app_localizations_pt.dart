@@ -235,4 +235,25 @@ class AppLocalizationsPt extends AppLocalizations {
   String patientLastVisit(Object date) {
     return 'Última consulta: $date';
   }
+
+  @override
+  String get appointments => 'Consultas';
+
+  @override
+  String get scheduleAppointment => 'Agendar Consulta';
+
+  @override
+  String get patientsRequiringAttention => 'Pacientes sob atenção';
+
+  @override
+  String get search => 'Pesquisar';
+
+  @override
+  String get add => 'Adicionar';
+
+  @override
+  String get calendar => 'Calendário';
+
+  @override
+  String get reports => 'Relatórios';
 }

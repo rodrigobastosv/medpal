@@ -94,5 +94,12 @@
     "searchPatients": "Buscar Pacientes",
     "allPatients": "Todos os Pacientes",
     "patientAgeGender": "{age, plural, one{{age} ano} other{{age} anos}} • {gender}",
-    "patientLastVisit": "Última consulta: {date}"
+    "patientLastVisit": "Última consulta: {date}",
+    "appointments": "Consultas",
+    "scheduleAppointment": "Agendar Consulta",
+    "patientsRequiringAttention": "Pacientes sob atenção",
+    "search": "Pesquisar",
+    "add": "Adicionar",
+    "calendar": "Calendário",
+    "reports": "Relatórios"
 }

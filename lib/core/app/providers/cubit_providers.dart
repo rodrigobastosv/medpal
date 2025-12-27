@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medpal/features/appointment/presentation/create/cubit/create_appointment_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_in/cubit/sign_in_cubit.dart';
 import 'package:medpal/features/auth/presentation/sign_up/cubit/sign_up_cubit.dart';
 import 'package:medpal/features/bootstrap/presentation/cubit/bootstrap_cubit.dart';
@@ -23,4 +24,5 @@ List<RepositoryProvider> cubitProviders() => [
   RepositoryProvider<ProfileCubit>(
     create: (context) => ProfileCubit(getUserUseCase: context.read(), signOutUseCase: context.read()),
   ),
+  RepositoryProvider<CreateAppointmentCubit>(create: (context) => CreateAppointmentCubit()),
 ];

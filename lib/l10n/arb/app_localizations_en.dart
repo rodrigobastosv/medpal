@@ -232,4 +232,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String patientLastVisit(Object date) {
     return 'Last visit: $date';
   }
+
+  @override
+  String get appointments => 'Appointments';
+
+  @override
+  String get scheduleAppointment => 'Schedule Appointment';
+
+  @override
+  String get patientsRequiringAttention => 'Patients requiring attention';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get calendar => 'Calendar';
+
+  @override
+  String get reports => 'Reports';
 }
