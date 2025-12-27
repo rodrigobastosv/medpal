@@ -29,6 +29,9 @@ jobs:
       - name: Copy dummy Firebase options for CI
         run: cp .github/ci/firebase_options.dart lib/firebase_options.dart
 
+      - name: Run build_runner
+        run: dart run build_runner build
+
       - name: Check code formatting
         run: dart format --set-exit-if-changed .
 
@@ -75,6 +78,9 @@ jobs:
       - name: Copy google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > android/app/google-services.json
 
+      - name: Run build_runner
+        run: dart run build_runner build
+
       - name: Build Android App Bundle
         run: flutter build appbundle --release
 
@@ -105,6 +111,8 @@ jobs:
         run: |
           echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" > ios/Runner/GoogleService-Info.plist
 
+      - name: Run build_runner
+        run: dart run build_runner build
 
       - name: Build iOS IPA (no codesign)
         run: flutter build ipa --release --no-codesign
@@ -131,7 +139,8 @@ jobs:
       - name: Copy dummy Firebase options for CI
         run: cp .github/ci/firebase_options.dart lib/firebase_options.dart
 
+      - name: Run build_runner
+        run: dart run build_runner build
+
       - name: Build Flutter Web
         run: flutter build web --release
-
-
