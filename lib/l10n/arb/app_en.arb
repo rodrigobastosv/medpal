@@ -95,11 +95,21 @@
     "allPatients": "All Patients",
     "patientAgeGender": "{age, plural, one{{age} year} other{{age} years}} • {gender}",
     "patientLastVisit": "Last visit: {date}",
-    "appointments": "Appointments",
+    "appointments": "{count, plural, =0{No appointments} =1{Appointment} other{Appointments}}",
     "scheduleAppointment": "Schedule Appointment",
     "patientsRequiringAttention": "Patients requiring attention",
     "search": "Search",
     "add": "Add",
     "calendar": "Calendar",
-    "reports": "Reports"
+    "reports": "Reports",
+    "appointmentTypeConsultation": "Consultation",
+    "appointmentTypeFollowUp": "Follow-up",
+    "appointmentTypeExam": "Exam",
+    "other": "Other",
+    "appointmentDetails": "Appointment details",
+    "patient": "{count, plural, =0{No patients} =1{Patient} other{Patients}}",
+    "appointmentType": "Appointment type",
+    "date": "Date",
+    "time": "Time",
+    "pending": "Pending"
 }

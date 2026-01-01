@@ -7,6 +7,8 @@ import 'package:medpal/features/bootstrap/presentation/cubit/bootstrap_cubit.dar
 final bootstrapRoute = GoRoute(
   name: MPRoute.bootstrap.name,
   path: MPRoute.bootstrap.path,
-  builder: (context, state) =>
-      BlocProvider<BootstrapCubit>(create: (context) => context.read<BootstrapCubit>()..init(), child: const BootstrapPage()),
+  builder: (context, state) => BlocProvider<BootstrapCubit>(
+    create: (context) => BootstrapCubit(isFirstLaunchUseCase: context.read(), getUserUseCase: context.read())..init(),
+    child: const BootstrapPage(),
+  ),
 );

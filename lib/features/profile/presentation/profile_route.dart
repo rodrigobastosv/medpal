@@ -7,5 +7,8 @@ import 'package:medpal/features/profile/presentation/profile_page.dart';
 final profileRoute = GoRoute(
   name: MPRoute.profile.name,
   path: MPRoute.profile.path,
-  builder: (context, state) => BlocProvider<ProfileCubit>(create: (context) => context.read<ProfileCubit>(), child: const ProfilePage()),
+  builder: (context, state) => BlocProvider<ProfileCubit>(
+    create: (context) => ProfileCubit(getUserUseCase: context.read(), signOutUseCase: context.read()),
+    child: const ProfilePage(),
+  ),
 );

@@ -29,7 +29,7 @@ class Appointments extends StatelessWidget {
               children: [
                 Icon(Icons.calendar_today_outlined, color: colorScheme.onPrimary),
                 MPUiConstants.gapSM,
-                Text(l10n.appointments, style: context.textTheme.titleMedium?.copyWith(color: colorScheme.onPrimary)),
+                Text(l10n.appointments(2), style: context.textTheme.titleMedium?.copyWith(color: colorScheme.onPrimary)),
               ],
             ),
             MPUiConstants.gapMD,

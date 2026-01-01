@@ -5,12 +5,12 @@ import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
 import 'package:medpal/core/presentation/dialogs/mp_error_dialog.dart';
 import 'package:medpal/core/presentation/general/mp_loading.dart';
 import 'package:medpal/core/presentation/general/mp_page.dart';
+import 'package:medpal/core/presentation/general/mp_section.dart';
 import 'package:medpal/core/utils/mp_validators.dart';
 import 'package:medpal/features/patient/domain/enums/gender.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_cubit.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_presentation_events.dart';
 import 'package:medpal/features/patient/presentation/register/cubit/register_patient_state.dart';
-import 'package:medpal/features/patient/presentation/register/widgets/register_section.dart';
 import 'package:medpal/l10n/l10n.dart';
 
 class RegisterPatientPage extends StatefulWidget {
@@ -55,7 +55,7 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  RegisterSection(
+                  MPSection(
                     title: l10n.basicInformation,
                     children: [
                       TextFormField(
@@ -92,7 +92,7 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
                       ),
                     ],
                   ),
-                  RegisterSection(
+                  MPSection(
                     title: l10n.contactInformation,
                     children: [
                       TextFormField(
@@ -108,7 +108,7 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
                       ),
                     ],
                   ),
-                  RegisterSection(
+                  MPSection(
                     title: l10n.demographics,
                     children: [
                       DropdownButtonFormField<Gender>(
@@ -118,7 +118,7 @@ class _RegisterPatientPageState extends State<RegisterPatientPage> {
                       ),
                     ],
                   ),
-                  RegisterSection(
+                  MPSection(
                     title: l10n.extraInformation,
                     children: [
                       TextFormField(

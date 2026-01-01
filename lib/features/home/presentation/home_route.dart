@@ -10,7 +10,12 @@ import 'package:medpal/features/profile/presentation/profile_route.dart';
 final homeRoute = GoRoute(
   name: MPRoute.home.name,
   path: MPRoute.home.path,
-  builder: (context, state) =>
-      BlocProvider<HomeCubit>(create: (context) => context.read<HomeCubit>()..loadPatients(), child: const HomePage()),
+  builder: (context, state) => BlocProvider<HomeCubit>(
+    create: (context) =>
+        HomeCubit(getUserUseCase: context.read(), getPatientsUseCase: context.read(), getAppointmentsUseCase: context.read())
+          ..loadPatients()
+          ..loadAppointments(),
+    child: const HomePage(),
+  ),
   routes: [profileRoute, listPatientsRoute, createAppointmentRoute],
 );

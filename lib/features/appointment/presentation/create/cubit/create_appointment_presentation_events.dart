@@ -9,3 +9,5 @@ class ErrorEvent extends CreateAppointmentPresentationEvent {
 
   final String errorMessage;
 }
+
+class AppointmentCreatedEvent extends CreateAppointmentPresentationEvent {}

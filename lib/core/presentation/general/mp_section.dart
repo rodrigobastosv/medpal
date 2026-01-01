@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medpal/core/presentation/constants/mp_ui_constants.dart';
-import 'package:medpal/features/patient/presentation/register/widgets/section_title.dart';
 
-class RegisterSection extends StatelessWidget {
-  const RegisterSection({required this.title, required this.children, super.key});
+class MPSection extends StatelessWidget {
+  const MPSection({required this.title, required this.children, super.key});
 
   final String title;
   final List<Widget> children;
@@ -12,6 +11,11 @@ class RegisterSection extends StatelessWidget {
   Widget build(BuildContext context) => Column(
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [SectionTitle(title), MPUiConstants.gapM, ...children, MPUiConstants.gapLG],
+    children: [
+      Text(title, style: Theme.of(context).textTheme.titleMedium),
+      MPUiConstants.gapM,
+      ...children,
+      MPUiConstants.gapLG,
+    ],
   );
 }

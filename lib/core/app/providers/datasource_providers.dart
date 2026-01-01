@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medpal/features/appointment/data/datasources/firebase/appointment_firebase_datasource.dart';
 import 'package:medpal/features/auth/data/datasources/firebase/auth_firebase_datasource.dart';
 import 'package:medpal/features/auth/data/datasources/local/auth_local_datasource.dart';
 import 'package:medpal/features/bootstrap/data/datasources/local/bootstrap_local_datasource.dart';
@@ -14,4 +15,5 @@ List<RepositoryProvider> datasourceProviders() => [
         AuthFirebaseDatasource(firebaseAuth: context.read(), firebaseFirestore: context.read(), firebaseStorage: context.read()),
   ),
   RepositoryProvider<PatientFirebaseDatasource>(create: (context) => PatientFirebaseDatasource(firebaseFirestore: context.read())),
+  RepositoryProvider<AppointmentFirebaseDatasource>(create: (context) => AppointmentFirebaseDatasource(firebaseFirestore: context.read())),
 ];

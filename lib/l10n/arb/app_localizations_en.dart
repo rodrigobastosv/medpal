@@ -234,7 +234,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get appointments => 'Appointments';
+  String appointments(num count) {
+    String _temp0 = intl.Intl.pluralLogic(count, locale: localeName, other: 'Appointments', one: 'Appointment', zero: 'No appointments');
+    return '$_temp0';
+  }
 
   @override
   String get scheduleAppointment => 'Schedule Appointment';
@@ -253,4 +256,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reports => 'Reports';
+
+  @override
+  String get appointmentTypeConsultation => 'Consultation';
+
+  @override
+  String get appointmentTypeFollowUp => 'Follow-up';
+
+  @override
+  String get appointmentTypeExam => 'Exam';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get appointmentDetails => 'Appointment details';
+
+  @override
+  String patient(num count) {
+    String _temp0 = intl.Intl.pluralLogic(count, locale: localeName, other: 'Patients', one: 'Patient', zero: 'No patients');
+    return '$_temp0';
+  }
+
+  @override
+  String get appointmentType => 'Appointment type';
+
+  @override
+  String get date => 'Date';
+
+  @override
+  String get time => 'Time';
+
+  @override
+  String get pending => 'Pending';
 }

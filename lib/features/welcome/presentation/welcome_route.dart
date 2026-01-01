@@ -7,5 +7,8 @@ import 'package:medpal/features/welcome/presentation/welcome_page.dart';
 final welcomeRoute = GoRoute(
   name: MPRoute.welcome.name,
   path: MPRoute.welcome.path,
-  builder: (context, state) => BlocProvider<WelcomeCubit>(create: (context) => context.read(), child: const WelcomePage()),
+  builder: (context, state) => BlocProvider<WelcomeCubit>(
+    create: (context) => WelcomeCubit(setFirstLaunchUseCase: context.read()),
+    child: const WelcomePage(),
+  ),
 );

@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medpal/features/appointment/domain/use_cases/create_appointment_use_case.dart';
+import 'package:medpal/features/appointment/domain/use_cases/get_appointments_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/get_user_auth_status_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/get_user_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/sign_in_use_case.dart';
@@ -22,5 +24,11 @@ List<RepositoryProvider> useCaseProviders() => [
   ),
   RepositoryProvider<GetPatientsUseCase>(
     create: (context) => GetPatientsUseCase(authRepository: context.read(), patientRepository: context.read()),
+  ),
+  RepositoryProvider<CreateAppointmentUseCase>(
+    create: (context) => CreateAppointmentUseCase(authRepository: context.read(), appointmentRepository: context.read()),
+  ),
+  RepositoryProvider<GetAppointmentsUseCase>(
+    create: (context) => GetAppointmentsUseCase(authRepository: context.read(), appointmentRepository: context.read()),
   ),
 ];

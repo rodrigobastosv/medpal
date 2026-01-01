@@ -7,5 +7,8 @@ import 'package:medpal/features/patient/presentation/register/register_patient_p
 final registerPatientRoute = GoRoute(
   name: MPRoute.registerPatient.name,
   path: MPRoute.registerPatient.path,
-  builder: (context, state) => BlocProvider<RegisterPatientCubit>(create: (context) => context.read(), child: const RegisterPatientPage()),
+  builder: (context, state) => BlocProvider<RegisterPatientCubit>(
+    create: (context) => RegisterPatientCubit(registerPatientUseCase: context.read()),
+    child: const RegisterPatientPage(),
+  ),
 );

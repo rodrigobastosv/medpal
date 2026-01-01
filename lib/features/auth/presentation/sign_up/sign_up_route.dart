@@ -7,6 +7,9 @@ import 'package:medpal/features/auth/presentation/sign_up/sign_up_page.dart';
 final signUpRoute = GoRoute(
   name: MPRoute.signUp.name,
   path: MPRoute.signUp.path,
-  builder: (context, state) => BlocProvider<SignUpCubit>(create: (context) => context.read(), child: const SignUpPage()),
+  builder: (context, state) => BlocProvider<SignUpCubit>(
+    create: (context) => SignUpCubit(cameraService: context.read(), signUpUseCase: context.read()),
+    child: const SignUpPage(),
+  ),
   redirect: (context, state) => MPRoute.signUp.path,
 );

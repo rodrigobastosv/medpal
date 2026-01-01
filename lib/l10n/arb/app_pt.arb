@@ -95,11 +95,21 @@
     "allPatients": "Todos os Pacientes",
     "patientAgeGender": "{age, plural, one{{age} ano} other{{age} anos}} • {gender}",
     "patientLastVisit": "Última consulta: {date}",
-    "appointments": "Consultas",
+    "appointments": "{count, plural, =0{Nenhum agendamento} =1{Agendamento} other{Agendamentos}}",
     "scheduleAppointment": "Agendar Consulta",
     "patientsRequiringAttention": "Pacientes sob atenção",
     "search": "Pesquisar",
     "add": "Adicionar",
     "calendar": "Calendário",
-    "reports": "Relatórios"
+    "reports": "Relatórios",
+    "appointmentTypeConsultation": "Consulta",
+    "appointmentTypeFollowUp": "Retorno",
+    "appointmentTypeExam": "Exame",
+    "other": "Outro",
+    "appointmentDetails": "Detalhes do agendamento",
+    "patient": "{count, plural, =0{Nenhum paciente} =1{Paciente} other{Pacientes}}",
+    "appointmentType": "Tipo de atendimento",
+    "date": "Data",
+    "time": "Hora",
+    "pending": "Pendentes"
 }

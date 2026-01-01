@@ -521,8 +521,8 @@ abstract class AppLocalizations {
   /// No description provided for @appointments.
   ///
   /// In en, this message translates to:
-  /// **'Appointments'**
-  String get appointments;
+  /// **'{count, plural, =0{No appointments} =1{Appointment} other{Appointments}}'**
+  String appointments(num count);
 
   /// No description provided for @scheduleAppointment.
   ///
@@ -559,6 +559,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reports'**
   String get reports;
+
+  /// No description provided for @appointmentTypeConsultation.
+  ///
+  /// In en, this message translates to:
+  /// **'Consultation'**
+  String get appointmentTypeConsultation;
+
+  /// No description provided for @appointmentTypeFollowUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow-up'**
+  String get appointmentTypeFollowUp;
+
+  /// No description provided for @appointmentTypeExam.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam'**
+  String get appointmentTypeExam;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @appointmentDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment details'**
+  String get appointmentDetails;
+
+  /// No description provided for @patient.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No patients} =1{Patient} other{Patients}}'**
+  String patient(num count);
+
+  /// No description provided for @appointmentType.
+  ///
+  /// In en, this message translates to:
+  /// **'Appointment type'**
+  String get appointmentType;
+
+  /// No description provided for @date.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get date;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pending;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

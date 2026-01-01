@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medpal/core/presentation/general/mp_page.dart';
 import 'package:medpal/core/routing/mp_route.dart';
 import 'package:medpal/core/routing/mp_routing_extensions.dart';
+import 'package:medpal/features/appointment/presentation/create/create_appointment_route.dart';
 import 'package:medpal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:medpal/features/home/presentation/cubit/home_presentation_events.dart';
 import 'package:medpal/features/home/presentation/cubit/home_state.dart';
@@ -23,8 +24,11 @@ class HomePage extends StatelessWidget {
           slivers: [
             HomeHeader(user: state.user, onTapProfile: () => context.pushRoute(MPRoute.profile)),
             AddPatientButton(onTap: () => context.pushRoute(MPRoute.registerPatient)),
-            OverviewStats(patients: state.patients),
-            Appointments(onTapSchedule: () => context.pushRoute(MPRoute.createAppointment)),
+            OverviewStats(patients: state.patients, appointments: state.appointments),
+            Appointments(
+              onTapSchedule: () =>
+                  context.pushRoute(MPRoute.createAppointment, extra: CreateAppointmentRouteExtra(patients: state.patients)),
+            ),
             const PatientsActions(),
           ],
         ),
