@@ -29,4 +29,7 @@ class PatientRepository {
   );
 
   Stream<List<Patient>> getPatients({required String userId}) => _patientFirebaseDatasource.getPatients(userId: userId);
+
+  Future<Result<MPError, void>> deletePatient({required String userId, required String patientId}) =>
+      _patientFirebaseDatasource.deletePatient(userId: userId, patientId: patientId);
 }

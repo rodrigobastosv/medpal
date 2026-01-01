@@ -36,4 +36,9 @@ class PatientFirebaseDatasource {
       .collection('patients')
       .snapshots()
       .map((snapshot) => snapshot.docs.map((doc) => Patient.fromJson({'id': doc.id, ...doc.data()})).toList());
+
+  Future<Result<MPError, void>> deletePatient({required String userId, required String patientId}) async {
+    await usersCollection.doc(userId).collection('patients').doc(patientId).delete();
+    return const Success(null);
+  }
 }

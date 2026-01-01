@@ -111,5 +111,10 @@
     "appointmentType": "Tipo de atendimento",
     "date": "Data",
     "time": "Hora",
-    "pending": "Pendentes"
+    "pending": "Pendentes",
+    "delete": "Excluir",
+    "cancel": "Cancelar",
+    "dialogDefaultTitle": "Você tem certeza?",
+    "deletePatientConfirmation": "Você tem certeza que deseja excluir este paciente? Essa ação não pode ser desfeita.",
+    "confirm": "Confirmar"
 }

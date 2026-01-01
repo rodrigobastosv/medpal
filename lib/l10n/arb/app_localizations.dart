@@ -619,6 +619,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pending'**
   String get pending;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @dialogDefaultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure?'**
+  String get dialogDefaultTitle;
+
+  /// No description provided for @deletePatientConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this patient? This action cannot be undone.'**
+  String get deletePatientConfirmation;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

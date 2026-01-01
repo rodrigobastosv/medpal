@@ -6,6 +6,7 @@ import 'package:medpal/features/auth/domain/use_cases/get_user_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/sign_in_use_case.dart';
 import 'package:medpal/features/auth/domain/use_cases/sign_up_use_case.dart';
 import 'package:medpal/features/bootstrap/domain/is_first_launch_use_case.dart';
+import 'package:medpal/features/patient/domain/use_cases/delete_patient_use_case.dart';
 import 'package:medpal/features/patient/domain/use_cases/get_patients_use_case.dart';
 import 'package:medpal/features/patient/domain/use_cases/register_patient_use_case.dart';
 import 'package:medpal/features/profile/domain/use_cases/sign_out_use_case.dart';
@@ -30,5 +31,8 @@ List<RepositoryProvider> useCaseProviders() => [
   ),
   RepositoryProvider<GetAppointmentsUseCase>(
     create: (context) => GetAppointmentsUseCase(authRepository: context.read(), appointmentRepository: context.read()),
+  ),
+  RepositoryProvider<DeletePatientUseCase>(
+    create: (context) => DeletePatientUseCase(authRepository: context.read(), patientRepository: context.read()),
   ),
 ];

@@ -292,4 +292,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get pending => 'Pendentes';
+
+  @override
+  String get delete => 'Excluir';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get dialogDefaultTitle => 'Você tem certeza?';
+
+  @override
+  String get deletePatientConfirmation => 'Você tem certeza que deseja excluir este paciente? Essa ação não pode ser desfeita.';
+
+  @override
+  String get confirm => 'Confirmar';
 }

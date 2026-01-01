@@ -7,10 +7,11 @@ import 'package:medpal/features/patient/presentation/list/widgets/patient_basic_
 import 'package:medpal/l10n/l10n.dart';
 
 class PatientCard extends StatelessWidget {
-  const PatientCard({required this.patient, required this.onScheduleAppointment, super.key});
+  const PatientCard({required this.patient, required this.onScheduleAppointment, required this.onDeletePatient, super.key});
 
   final Patient patient;
   final VoidCallback onScheduleAppointment;
+  final VoidCallback onDeletePatient;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,13 @@ class PatientCard extends StatelessWidget {
                 onPressed: onScheduleAppointment,
                 color: context.colorScheme.primary,
                 tooltip: l10n.scheduleAppointment,
+              ),
+              IconButton(
+                style: OutlinedButton.styleFrom(visualDensity: VisualDensity.compact, shape: const StadiumBorder()),
+                icon: const Icon(Icons.delete, size: 26),
+                onPressed: onDeletePatient,
+                color: context.colorScheme.error,
+                tooltip: l10n.delete,
               ),
             ],
           ),

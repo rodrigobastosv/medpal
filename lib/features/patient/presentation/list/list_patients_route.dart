@@ -17,7 +17,7 @@ final listPatientsRoute = GoRoute(
   builder: (context, state) {
     final extra = state.extra as ListPatientsRouteExtra?;
     return BlocProvider<ListPatientsCubit>(
-      create: (context) => ListPatientsCubit(patients: extra?.patients ?? []),
+      create: (context) => ListPatientsCubit(patients: extra?.patients ?? [], deletePatientUseCase: context.read()),
       child: const ListPatientsPage(),
     );
   },

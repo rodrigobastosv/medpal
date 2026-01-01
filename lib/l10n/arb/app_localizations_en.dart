@@ -289,4 +289,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pending => 'Pending';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get dialogDefaultTitle => 'Are you sure?';
+
+  @override
+  String get deletePatientConfirmation => 'Are you sure you want to delete this patient? This action cannot be undone.';
+
+  @override
+  String get confirm => 'Confirm';
 }
