@@ -1,17 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
 import 'package:medpal/l10n/arb/app_localizations.dart';
 
 enum AppointmentType {
+  @JsonValue('consultation')
   consultation('consultation'),
+  @JsonValue('follow_up')
   followUp('follow_up'),
+  @JsonValue('exam')
   exam('exam'),
+  @JsonValue('other')
   other('other');
 
   const AppointmentType(this.value);
-
   final String value;
-
-  static AppointmentType fromValue(String value) =>
-      AppointmentType.values.firstWhere((type) => type.value == value, orElse: () => AppointmentType.other);
 
   String label(AppLocalizations l10n) => switch (this) {
     AppointmentType.consultation => l10n.appointmentTypeConsultation,
