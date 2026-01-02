@@ -15,6 +15,7 @@
     "**/linux/**",
     "**/macos/**",
     "**/node_modules/**",
+    "functions/**",
     "**/windows/**",
     "pubspec.yaml",
     "lib/firebase_options.dart",
