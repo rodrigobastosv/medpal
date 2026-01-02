@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "medpal-d5092"
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20",
+    "build": false,
+    "predeploy": [
+      "npm --prefix ./ run lint",
+      "npm --prefix ./ run build"
+    ]
+  }
+}
