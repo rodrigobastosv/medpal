@@ -12,7 +12,7 @@ export const onAppointmentCreatd = onDocumentCreated(
         if (!document) {
             return;
         }
-        const { patientId, type, appointmentDate } = document.data();
+        const { patientId, patientName, type, appointmentDate } = document.data();
 
         await admin
             .firestore()
@@ -25,6 +25,7 @@ export const onAppointmentCreatd = onDocumentCreated(
                     userId,
                     appointmentId,
                     patientId,
+                    patientName,
                     type,
                     appointmentDate,
                 },
