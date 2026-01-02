@@ -28,7 +28,7 @@ class QuickActionsBottomBar extends StatelessWidget {
             onTap: () => context.pushRoute(MPRoute.listPatients, extra: ListPatientsRouteExtra(patients: patients)),
           ),
           QuickAction(icon: Icons.person_add, label: l10n.add, onTap: () => context.pushRoute(MPRoute.registerPatient)),
-          QuickAction(icon: Icons.calendar_today, label: l10n.calendar),
+          QuickAction(icon: Icons.calendar_today, label: l10n.calendar, onTap: () => context.pushRoute(MPRoute.calendar)),
           QuickAction(icon: Icons.bar_chart, label: l10n.reports),
         ],
       ),

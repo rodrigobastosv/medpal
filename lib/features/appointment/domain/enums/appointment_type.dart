@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:medpal/l10n/arb/app_localizations.dart';
 
@@ -19,5 +20,12 @@ enum AppointmentType {
     AppointmentType.followUp => l10n.appointmentTypeFollowUp,
     AppointmentType.exam => l10n.appointmentTypeExam,
     AppointmentType.other => l10n.other,
+  };
+
+  Color get color => switch (this) {
+    AppointmentType.consultation => Colors.deepPurpleAccent,
+    AppointmentType.followUp => Colors.green,
+    AppointmentType.exam => Colors.orange,
+    AppointmentType.other => Colors.grey,
   };
 }

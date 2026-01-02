@@ -7,7 +7,8 @@ enum MPRoute {
   registerPatient('/register-patient'),
   listPatients('/patients'),
   profile('/profile'),
-  createAppointment('/create-appointment');
+  createAppointment('/create-appointment'),
+  calendar('/calendar');
 
   const MPRoute(this.path);
 
